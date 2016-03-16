@@ -1,0 +1,2 @@
+version=4
+http://smarden.org/runit/install.html runit-([.0-9]+)\.tar\.gz
