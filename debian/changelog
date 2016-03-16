@@ -4,6 +4,11 @@ runit (2.1.2-4) unstable; urgency=medium
   * Bump standards version to 3.9.7 (no changes needed)
   * Write watch file
 
+  * Change source format from implicit `1.0' to explicit `3.0(quilt)'.
+    With this source format patches in debian/patches are applied
+    automatically and `dpkg-buildpackage' no longer complains about
+    files under `debian/.git'.
+
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
 
 runit (2.1.2-3) unstable; urgency=medium
