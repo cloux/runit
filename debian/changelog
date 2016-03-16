@@ -1,6 +1,7 @@
 runit (2.1.2-4) unstable; urgency=medium
 
   * New maintainer
+  * Bump standards version to 3.9.7 (no changes needed)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
 

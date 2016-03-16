@@ -2,7 +2,7 @@ Source: runit
 Section: admin
 Priority: optional
 Maintainer: Dmitry Bogatov <KAction@gnu.org>
-Standards-Version: 3.9.6.0
+Standards-Version: 3.9.7
 Homepage: http://smarden.org/runit/
 
 Package: runit
