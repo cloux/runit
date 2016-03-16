@@ -1,7 +1,7 @@
 Source: runit
 Section: admin
 Priority: optional
-Maintainer: Gerrit Pape <pape@smarden.org>
+Maintainer: Dmitry Bogatov <KAction@gnu.org>
 Standards-Version: 3.9.6.0
 Homepage: http://smarden.org/runit/
 
