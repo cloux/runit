@@ -1,0 +1,9 @@
+[Unit]
+Description=Runit service supervision
+
+[Service]
+ExecStart=/usr/sbin/runsvdir-start
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

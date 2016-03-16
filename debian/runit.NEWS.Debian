@@ -1,0 +1,38 @@
+runit (1.9.0-1) unstable; urgency=low
+
+    runit's default directory for services has been /var/service/ for
+    quite some years.  The usage of the directory /var/service/ does
+    not comply with the Filesystem Hierarchy Standard (FHS) though,
+    and there are no signs that this will change.
+
+    With version 1.9.0 the runit upstream package switched from
+    /var/service/ to /service/ (which doesn't comply with the FHS
+    either).
+
+    The Debian package from now on uses /etc/service/, on upgrade from
+    previous versions of the runit Debian package, a compatibility
+    symlink /var/service -> /etc/service is retained.  Nevertheless,
+    existing programs or scripts that deal with the contents of the
+    default directory for services should be adapted.  Take a look at
+    the new update-service(8) program when doing so.
+
+    To be consistent with existing documentation, it is recommended to
+    create a compatibility symlink through
+
+     ln -s /etc/service /service
+
+    after installing the runit Debian package.
+
+ -- Gerrit Pape <pape@smarden.org>  Thu, 08 May 2008 00:30:39 +0000
+
+runit (1.4.1-1) unstable; urgency=low
+
+    With this version the runsvctrl, runsvstat, svwaitdown, and svwaitup
+    programs no longer are being installed, the functionality of these
+    programs has been incorporated into the sv program.
+    
+    The documentation now suggest to put service directories by default
+    into the /etc/sv/ directory, and a list of frequently asked questions
+    with answers has been added.
+
+ -- Gerrit Pape <pape@smarden.org>  Sat, 13 May 2006 14:55:09 +0000

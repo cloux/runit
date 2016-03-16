@@ -1,0 +1,55 @@
+#!/bin/sh
+set -e
+
+test "$1" = 'configure' || exit 0
+
+# workaround #766187
+# copy from sysvinit-2.88dsf/debian/sysvinit-core.postinst and adjust
+if [ ! -f /etc/inittab ]
+then
+        cp -p /usr/share/runit/inittab /etc/inittab
+fi
+# end copy from sysvinit-2.88dsf
+
+if test -z "$2"; then
+  # not upgrading
+  if grep '^SV:' /etc/inittab >/dev/null; then
+    if ! grep '^#-- runit begin' /etc/inittab >/dev/null; then
+      cat <<\EOT >&2
+
+There already is an SV entry in /etc/inittab.  In order to have this package
+add an entry with the name SV to have runit's service supervision started
+by sysvinit, you need to remove or rename the current SV entry first.
+
+Installation failed.
+
+EOT
+      exit 1
+    fi
+  fi
+fi
+
+if ! grep '^SV:' /etc/inittab >/dev/null; then
+  cp /etc/inittab /etc/inittab'{new}'
+  cat >>/etc/inittab'{new}' <<-\EOT
+	#-- runit begin
+	SV:123456:respawn:/usr/sbin/runsvdir-start
+	#-- runit end
+	EOT
+  mv -f /etc/inittab'{new}' /etc/inittab
+fi
+
+test ! -d /proc/1 || kill -s HUP 1
+
+# systemd service
+test -h /etc/systemd/system/multi-user.target.wants/runit.service ||
+  test ! -d /etc/systemd/system/multi-user.target.wants ||
+    ln -s /lib/systemd/system/runit.service \
+      /etc/systemd/system/multi-user.target.wants/
+test ! -d /run/systemd/system || systemctl start runit.service
+
+# remove lingering debconf-managed configuration
+# from versions 2.1.0-1 through 2.1.1-6.1.
+test -r /usr/share/debconf/confmodule || exit 0
+. /usr/share/debconf/confmodule
+db_purge

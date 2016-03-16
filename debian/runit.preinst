@@ -1,0 +1,7 @@
+#!/bin/sh
+set -e
+
+test "$1" = 'upgrade' || exit 0
+
+test ! -x /sbin/runit || test -e /sbin/runit.old || \
+  ln /sbin/runit /sbin/runit.old

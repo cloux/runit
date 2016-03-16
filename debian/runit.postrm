@@ -1,0 +1,30 @@
+#!/bin/sh
+set -e
+
+test "$1" = 'remove' || test "$1" = 'purge' || exit 0
+
+if grep '#-- runit begin' /etc/inittab >/dev/null; then
+  echo 'Removing SV inittab entry...'
+  rm -f /etc/inittab'{new}'
+  sed -e '/#-- runit begin/,/#-- runit end/d' \
+    </etc/inittab >/etc/inittab'{new}'
+  mv -f /etc/inittab'{new}' /etc/inittab
+  test ! -d /proc/1 || kill -s HUP 1
+fi
+
+# systemd service
+test ! -d /run/systemd/system ||
+  ! systemctl is-active runit.service >/dev/null ||
+    systemctl stop runit.service
+rm -f /etc/systemd/system/multi-user.target.wants/runit.service
+
+test "$1" = 'purge' || exit 0
+
+rm -rf /etc/sv/getty-5/supervise /var/run/sv.getty-5
+test ! -h /var/service || rm -f /var/service
+
+# remove lingering debconf-managed configuration
+# from versions 2.1.0-1 through 2.1.1-6.1.
+test -r /usr/share/debconf/confmodule || exit 0
+. /usr/share/debconf/confmodule
+db_purge
