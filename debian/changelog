@@ -8,6 +8,10 @@ runit (2.1.2-4) unstable; urgency=medium
     With this source format patches in debian/patches are applied
     automatically and `dpkg-buildpackage' no longer complains about
     files under `debian/.git'.
+  * Convert patches to quilt format.
+      - Remove manual patches application
+      - Rename `debian/diff' to `debian/patches'
+      - Generate `patches/series' file
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
 

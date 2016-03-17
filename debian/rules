@@ -35,9 +35,6 @@ DIR =$(shell pwd)/debian/runit
 
 patch: deb-checkdir patch-stamp
 patch-stamp:
-	for i in `ls -1 debian/diff/*.diff || :`; do \
-	  patch -p1 <$$i || exit 1; \
-	done
 	touch patch-stamp
 
 build: deb-checkdir build-stamp
