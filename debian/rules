@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-VERSION =$(shell head -n1 debian/changelog |sed -e 's/.*(\(.*\)-.*).*/\1/')
+VERSION = $(shell dpkg-parsechangelog -SVersion|cut -d- -f1)
 
 CC =gcc
 STRIP =strip

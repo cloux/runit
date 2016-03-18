@@ -4,6 +4,7 @@ Priority: optional
 Maintainer: Dmitry Bogatov <KAction@gnu.org>
 Standards-Version: 3.9.7
 Homepage: http://smarden.org/runit/
+Build-Depends: dpkg-dev
 
 Package: runit
 Architecture: any
