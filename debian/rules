@@ -1,35 +1,10 @@
 #!/usr/bin/make -f
 
-VERSION = $(shell dpkg-parsechangelog -SVersion|cut -d- -f1)
-
 CC =gcc
 STRIP =strip
 
-CFLAGS =$(shell DEB_BUILD_MAINT_OPTIONS=$(DEB_BUILD_MAINT_OPTIONS) \
-  dpkg-buildflags --get CFLAGS)
-LDFLAGS =$(shell DEB_BUILD_MAINT_OPTIONS=$(DEB_BUILD_MAINT_OPTIONS) \
-  dpkg-buildflags --get LDFLAGS)
-CPPFLAGS =$(shell DEB_BUILD_MAINT_OPTIONS=$(DEB_BUILD_MAINT_OPTIONS) \
-  dpkg-buildflags --get CPPFLAGS)
+include /usr/share/dpkg/default.mk
 
-DEB_HOST_GNU_TYPE =$(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
-DEB_BUILD_GNU_TYPE =$(shell dpkg-architecture -qDEB_BUILD_GNU_TYPE)
-ifneq ($(DEB_HOST_GNU_TYPE),$(DEB_BUILD_GNU_TYPE))
-  CC =$(DEB_HOST_GNU_TYPE)-gcc
-endif
-
-ifneq (,$(findstring diet,$(DEB_BUILD_OPTIONS)))
-  CC =diet -v -Os gcc
-  CFLAGS =-nostdinc -Wall
-  CPPFLAGS =
-  LDFLAGS =-pipe
-endif
-ifneq (,$(findstring nostrip,$(DEB_BUILD_OPTIONS)))
-  STRIP =: strip
-endif
-ifneq (,$(findstring debug,$(DEB_BUILD_OPTIONS)))
-  CFLAGS +=-g
-endif
 
 DIR =$(shell pwd)/debian/runit
 
@@ -40,7 +15,7 @@ patch-stamp:
 build: deb-checkdir build-stamp
 build-stamp: patch-stamp
 	-gcc -v
-	test -e runit || ln -s runit-'$(VERSION)' runit
+	test -e runit || ln -s runit-'$(DEB_VERSION_UPSTREAM)' runit
 	test -r conf-cc'{orig}' || cp -f runit/src/conf-cc conf-cc'{orig}'
 	echo '$(CC) $(CFLAGS)' >runit/src/conf-cc
 	test -r conf-ld'{orig}' || cp -f runit/src/conf-ld conf-ld'{orig}'
