@@ -8,12 +8,8 @@ include /usr/share/dpkg/default.mk
 
 DIR =$(shell pwd)/debian/runit
 
-patch: deb-checkdir patch-stamp
-patch-stamp:
-	touch patch-stamp
-
-build: deb-checkdir build-stamp
-build-stamp: patch-stamp
+build: build-stamp
+build-stamp:
 	-gcc -v
 	test -e runit || ln -s runit-'$(DEB_VERSION_UPSTREAM)' runit
 	test -r conf-cc'{orig}' || cp -f runit/src/conf-cc conf-cc'{orig}'
@@ -23,18 +19,15 @@ build-stamp: patch-stamp
 	(cd runit/ && package/compile && package/check)
 	touch build-stamp
 
-clean: deb-checkdir deb-checkuid
+clean: deb-checkuid
 	rm -rf runit/compile runit/command
-	test ! -e patch-stamp || \
-	  for i in `ls -1r debian/diff/*.diff || :`; do patch -p1 -R <$$i; done
-	rm -f patch-stamp build-stamp
 	rm -rf '$(DIR)'
 	rm -f debian/files debian/substvars changelog
 	test ! -r conf-cc'{orig}' || mv -f conf-cc'{orig}' runit/src/conf-cc
 	test ! -r conf-ld'{orig}' || mv -f conf-ld'{orig}' runit/src/conf-ld
 	rm -f runit
 
-install: deb-checkdir deb-checkuid build-stamp
+install: deb-checkuid build-stamp
 	rm -rf '$(DIR)'
 	install -d -m0755 '$(DIR)'/etc/service
 	install -d -m0755 '$(DIR)'/var/lib/supervise
@@ -120,6 +113,6 @@ binary-arch: install runit.deb
 
 binary: binary-indep binary-arch
 
-.PHONY: patch build clean install binary-indep binary-arch binary
+.PHONY: build clean install binary-indep binary-arch binary
 
 include debian/implicit
