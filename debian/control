@@ -1,6 +1,5 @@
 Source: runit
 Section: admin
-Priority: optional
 Maintainer: Dmitry Bogatov <KAction@gnu.org>
 Standards-Version: 3.9.7
 Homepage: http://smarden.org/runit/
@@ -11,6 +10,7 @@ Architecture: any
 Depends: ${shlibs:Depends}
 Recommends: fgetty
 Suggests: socklog-run
+Priority: optional
 Description: system-wide service supervision
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about
@@ -28,6 +28,7 @@ Architecture: any
 Depends: ${shlib:Depends}, runit (= ${binary:Version})
 Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), upstart, sysvinit-core
 Conflicts: systemd-sysv, sysvinit (<< 2.88dsf-44~), upstart, sysvinit-core
+Priority: extra
 Description: system-wide service supervision (as init system)
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about

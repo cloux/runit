@@ -15,7 +15,8 @@ runit (2.1.2-4) unstable; urgency=medium
   * Convert 'debian/copyright' to dep5 format
   * Convert packaging to debhelper
   * New binary package 'runit-init', that provides /sbin/init replacement
-    out-of-box
+    out-of-box. This package have reduced priority 'extra', since it
+    conflicts with other initialization systems.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
 
