@@ -20,5 +20,20 @@ Description: system-wide service supervision
  and a log facility with automatic log file rotation and disk space limits.
  .
  runit service supervision can run under sysv init or replace the init
- system completely.  Complete init replacement requires some manual
- configuration described in the supplied documentation.
+ system completely.  Complete init replacement provided by 'runit-init'
+ package.
+
+Package: runit-init
+Architecture: any
+Depends: ${shlib:Depends}, runit (= ${binary:Version})
+Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), upstart, sysvinit-core
+Conflicts: systemd-sysv, sysvinit (<< 2.88dsf-44~), upstart, sysvinit-core
+Description: system-wide service supervision (as init system)
+ runit is a collection of tools to provide system-wide service supervision
+ and to manage services.  Contrary to sysv init, it not only cares about
+ starting and stopping services, but also supervises the service daemons
+ while they are running.  Amongst other things, it provides a reliable
+ interface to send signals to service daemons without the need for pid-files,
+ and a log facility with automatic log file rotation and disk space limits.
+ .
+ This package provides /sbin/init, that boots your system and starts runit.
