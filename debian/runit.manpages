@@ -1,0 +1,8 @@
+#!/usr/bin/dh-exec
+${RUNIT}/man/runsvdir.8
+${RUNIT}/man/runsv.8
+${RUNIT}/man/sv.8
+${RUNIT}/man/svlogd.8
+${RUNIT}/man/chpst.8
+${RUNIT}/man/runsvchdir.8
+${RUNIT}/man/utmpset.8
