@@ -1,0 +1,13 @@
+#!/usr/bin/dh-exec
+${RUNIT}/doc/*.html     /usr/share/doc/runit/html
+
+${RUNIT}/src/runit      /sbin
+${RUNIT}/src/runit-init /sbin
+
+${RUNIT}/src/runsvdir   /usr/bin
+${RUNIT}/src/runsv      /usr/bin
+${RUNIT}/src/sv         /usr/bin
+${RUNIT}/src/svlogd     /usr/bin
+${RUNIT}/src/chpst      /usr/bin
+${RUNIT}/src/runsvchdir /usr/sbin
+${RUNIT}/src/utmpset     /usr/sbin
