@@ -2,7 +2,6 @@
 ${RUNIT}/doc/*.html     /usr/share/doc/runit/html
 
 ${RUNIT}/src/runit      /sbin
-${RUNIT}/src/runit-init /sbin
 
 ${RUNIT}/src/runsvdir   /usr/bin
 ${RUNIT}/src/runsv      /usr/bin
@@ -10,4 +9,8 @@ ${RUNIT}/src/sv         /usr/bin
 ${RUNIT}/src/svlogd     /usr/bin
 ${RUNIT}/src/chpst      /usr/bin
 ${RUNIT}/src/runsvchdir /usr/sbin
-${RUNIT}/src/utmpset     /usr/sbin
+${RUNIT}/src/utmpset    /usr/sbin
+
+${RUNIT}/etc/debian/1   /etc/runit
+${RUNIT}/etc/2          /etc/runit
+${RUNIT}/etc/debian/3   /etc/runit

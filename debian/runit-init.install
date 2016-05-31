@@ -1,3 +1,2 @@
 #!/usr/bin/dh-exec
-${RUNIT}/src/runit         /sbin
 ${RUNIT}/src/runit-init => /sbin/init
