@@ -1,3 +1,4 @@
+0005-patch-etc-runit-2-for-FHS.patch
 0001-default-directory-for-services-on-Debian-is-etc-servi.diff
 0002-support-etc-runit-nosync-file-to-make-sync-on-shutdow.diff
 0003-utmpset.c-mixes-int32_t-and-time_t.diff
