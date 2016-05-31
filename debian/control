@@ -3,7 +3,7 @@ Section: admin
 Maintainer: Dmitry Bogatov <KAction@gnu.org>
 Standards-Version: 3.9.7
 Homepage: http://smarden.org/runit/
-Build-Depends: dpkg-dev
+Build-Depends: dpkg-dev, dh-exec (>= 0.23)
 
 Package: runit
 Architecture: any
