@@ -21,6 +21,7 @@ runit (2.1.2-4) unstable; urgency=medium
   * Patch '${RUNIT}/etc/2' and install it instead of providing separate
     version as 'debian/2'
   * Remove unused 'examples/start-stop-daemon' script.
+  * Utilize 'dh_bash-completion' to install bash completion snippet
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
 

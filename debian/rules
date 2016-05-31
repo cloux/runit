@@ -6,7 +6,7 @@ include /usr/share/dpkg/default.mk
 export RUNIT := runit-$(DEB_VERSION_UPSTREAM)
 
 %:
-	dh $@ --sourcedirectory=$(RUNIT)/src
+	dh $@ --sourcedirectory=$(RUNIT)/src --with bash_completion
 
 # Do not install html pages, that duplicate man pages
 override_dh_install:
