@@ -1,3 +1,12 @@
+runit (2.1.2-4) unstable; urgency=medium
+
+    Runit no longer provides /sbin/runsvdir-start symbolic link to
+    /etc/runit/2. Everything this package provides now directly
+    refers to /etc/runit/2, including systemd's service file, but
+    scripts and configuration outside may be need updated.
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Tue, 31 May 2016 21:51:28 +0300
+
 runit (1.9.0-1) unstable; urgency=low
 
     runit's default directory for services has been /var/service/ for
@@ -30,7 +39,7 @@ runit (1.4.1-1) unstable; urgency=low
     With this version the runsvctrl, runsvstat, svwaitdown, and svwaitup
     programs no longer are being installed, the functionality of these
     programs has been incorporated into the sv program.
-    
+
     The documentation now suggest to put service directories by default
     into the /etc/sv/ directory, and a list of frequently asked questions
     with answers has been added.
