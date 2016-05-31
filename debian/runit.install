@@ -1,5 +1,5 @@
 #!/usr/bin/dh-exec
-${RUNIT}/doc/*.html     /usr/share/doc/runit/html
+${RUNIT}/doc/*[a-z].html     /usr/share/doc/runit/html
 
 ${RUNIT}/src/runit      /sbin
 
