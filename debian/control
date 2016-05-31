@@ -4,6 +4,8 @@ Maintainer: Dmitry Bogatov <KAction@gnu.org>
 Standards-Version: 3.9.8
 Homepage: http://smarden.org/runit/
 Build-Depends: dpkg-dev, dh-exec (>= 0.23)
+Vcs-Browser: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
+Vcs-Git: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
 
 Package: runit
 Architecture: any
