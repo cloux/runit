@@ -1,0 +1,3 @@
+#!/usr/bin/dh-exec
+${RUNIT}/man/runit.8
+${RUNIT}/man/runit-init.8
