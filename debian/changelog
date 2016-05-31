@@ -22,6 +22,7 @@ runit (2.1.2-4) unstable; urgency=medium
     version as 'debian/2'
   * Remove unused 'examples/start-stop-daemon' script.
   * Utilize 'dh_bash-completion' to install bash completion snippet
+  * Utilitze 'dh_systemd' to install systemd service file
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
 

@@ -2,7 +2,7 @@
 Description=Runit service supervision
 
 [Service]
-ExecStart=/usr/sbin/runsvdir-start
+ExecStart=/etc/runit/2
 Restart=always
 
 [Install]
