@@ -1,7 +1,7 @@
 runit (2.1.2-4) unstable; urgency=medium
 
   * New maintainer
-  * Bump standards version to 3.9.7 (no changes needed)
+  * Bump standards version to 3.9.8 (no changes needed)
   * Write watch file
   * Change source format from implicit `1.0' to explicit `3.0(quilt)'.
       - patches from debian/patches are applied automatically

@@ -1,7 +1,7 @@
 Source: runit
 Section: admin
 Maintainer: Dmitry Bogatov <KAction@gnu.org>
-Standards-Version: 3.9.7
+Standards-Version: 3.9.8
 Homepage: http://smarden.org/runit/
 Build-Depends: dpkg-dev, dh-exec (>= 0.23)
 
