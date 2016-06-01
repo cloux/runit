@@ -5,4 +5,6 @@ include /usr/share/dpkg/default.mk
 export RUNIT := runit-$(DEB_VERSION_UPSTREAM)
 
 %:
-	dh $@ --sourcedirectory=$(RUNIT)/src --with bash_completion,systemd
+	dh $@ --sourcedirectory=$(RUNIT)/src \
+	      --with bash_completion,systemd \
+              --name runit

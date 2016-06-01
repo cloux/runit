@@ -1,6 +1,7 @@
 Source: runit
 Section: admin
 Maintainer: Dmitry Bogatov <KAction@gnu.org>
+Priority: optional
 Standards-Version: 3.9.8
 Homepage: http://smarden.org/runit/
 Build-Depends: dpkg-dev, dh-exec (>= 0.23), bash-completion, dh-systemd
@@ -12,7 +13,6 @@ Architecture: any
 Depends: ${shlibs:Depends}
 Recommends: fgetty
 Suggests: socklog-run
-Priority: optional
 Description: system-wide service supervision
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about
@@ -24,6 +24,19 @@ Description: system-wide service supervision
  runit service supervision can run under sysv init or replace the init
  system completely.  Complete init replacement provided by 'runit-init'
  package.
+
+Package: runit-systemd
+Architecture: all
+Depends: runit, systemd-sysv, ${shlibs:Depends}
+Description: system-wide service supervision
+ runit is a collection of tools to provide system-wide service supervision
+ and to manage services.  Contrary to sysv init, it not only cares about
+ starting and stopping services, but also supervises the service daemons
+ while they are running.  Amongst other things, it provides a reliable
+ interface to send signals to service daemons without the need for pid-files,
+ and a log facility with automatic log file rotation and disk space limits.
+ .
+ This package provides service file to start runit supervision via systemd.
 
 Package: runit-init
 Architecture: any
