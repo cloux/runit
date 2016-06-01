@@ -10,7 +10,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  
  cat warn-auto.sh
 -echo exec "$cc" '-c ${1+"$@"}'
-+echo exec "$cc" "$CFLAGS" '-c ${1+"$@"}'
++echo exec "$cc" "$CPPFLAGS" "$CFLAGS" '-c ${1+"$@"}'
 --- a/runit-2.1.2/src/print-ld.sh
 +++ b/runit-2.1.2/src/print-ld.sh
 @@ -3,4 +3,4 @@ systype="`cat systype`"
