@@ -1,9 +1,8 @@
-#!/usr/bin/dh-exec
-${RUNIT}/man/runsvdir.8
-${RUNIT}/man/runsv.8
-${RUNIT}/man/sv.8
-${RUNIT}/man/svlogd.8
-${RUNIT}/man/chpst.8
-${RUNIT}/man/runsvchdir.8
-${RUNIT}/man/utmpset.8
+runit-*/man/runsvdir.8
+runit-*/man/runsv.8
+runit-*/man/sv.8
+runit-*/man/svlogd.8
+runit-*/man/chpst.8
+runit-*/man/runsvchdir.8
+runit-*/man/utmpset.8
 debian/update-service.8

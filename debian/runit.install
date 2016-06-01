@@ -1,15 +1,14 @@
-#!/usr/bin/dh-exec
-${RUNIT}/doc/*[a-z].html     /usr/share/doc/runit/html
+runit-*/doc/*[a-z].html     /usr/share/doc/runit/html
 debian/update-service        /sbin
 
-${RUNIT}/src/runsvdir   /usr/bin
-${RUNIT}/src/runsv      /usr/bin
-${RUNIT}/src/sv         /usr/bin
-${RUNIT}/src/svlogd     /usr/bin
-${RUNIT}/src/chpst      /usr/bin
-${RUNIT}/src/runsvchdir /usr/sbin
-${RUNIT}/src/utmpset    /usr/sbin
+runit-*/src/runsvdir   /usr/bin
+runit-*/src/runsv      /usr/bin
+runit-*/src/sv         /usr/bin
+runit-*/src/svlogd     /usr/bin
+runit-*/src/chpst      /usr/bin
+runit-*/src/runsvchdir /usr/sbin
+runit-*/src/utmpset    /usr/sbin
 
-${RUNIT}/etc/debian/1   /etc/runit
-${RUNIT}/etc/2          /etc/runit
-${RUNIT}/etc/debian/3   /etc/runit
+runit-*/etc/debian/1   /etc/runit
+runit-*/etc/2          /etc/runit
+runit-*/etc/debian/3   /etc/runit

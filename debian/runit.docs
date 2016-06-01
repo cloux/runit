@@ -1,3 +1,2 @@
-#!/usr/bin/dh-exec
-${RUNIT}/package/README
-${RUNIT}/package/THANKS
+runit-*/package/README
+runit-*/package/THANKS
