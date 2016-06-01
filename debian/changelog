@@ -25,6 +25,8 @@ runit (2.1.2-4) unstable; urgency=medium
   * Utilitze 'dh_systemd' to install systemd service file
   * Delete runsvdir-start symbolic link. Note is left in NEWS file
   * Rename runit.NEWS.Debian to runit.NEWS to be installed by debhelper
+  * Remove scripting in runit's maintainer scripts to adjust /etc/inittab.
+    It will be provided as separate package.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
 
