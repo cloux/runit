@@ -4,13 +4,16 @@ Maintainer: Dmitry Bogatov <KAction@gnu.org>
 Priority: optional
 Standards-Version: 3.9.8
 Homepage: http://smarden.org/runit/
-Build-Depends: dpkg-dev, dh-exec (>= 0.23), bash-completion, dh-systemd
+Build-Depends: bash-completion,
+               debhelper (>= 9.20160403),
+               dh-exec (>= 0.23),
+               dh-systemd
 Vcs-Browser: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
 Vcs-Git: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
 
 Package: runit
 Architecture: any
-Depends: ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Recommends: fgetty
 Suggests: socklog-run
 Description: system-wide service supervision
@@ -27,8 +30,8 @@ Description: system-wide service supervision
 
 Package: runit-systemd
 Architecture: all
-Depends: runit, systemd-sysv, ${shlibs:Depends}
-Description: system-wide service supervision
+Depends: runit, systemd-sysv, ${misc:Depends}, ${shlibs:Depends}
+Description: system-wide service supervision (systemd integration)
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about
  starting and stopping services, but also supervises the service daemons
@@ -40,9 +43,9 @@ Description: system-wide service supervision
 
 Package: runit-init
 Architecture: any
-Depends: ${shlib:Depends}, runit (= ${binary:Version})
-Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), upstart, sysvinit-core
-Conflicts: systemd-sysv, sysvinit (<< 2.88dsf-44~), upstart, sysvinit-core
+Depends: runit (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}
+Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
+Conflicts: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
 Priority: extra
 Description: system-wide service supervision (as init system)
  runit is a collection of tools to provide system-wide service supervision

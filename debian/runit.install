@@ -1,7 +1,6 @@
 #!/usr/bin/dh-exec
 ${RUNIT}/doc/*[a-z].html     /usr/share/doc/runit/html
-
-${RUNIT}/src/runit      /sbin
+debian/update-service        /sbin
 
 ${RUNIT}/src/runsvdir   /usr/bin
 ${RUNIT}/src/runsv      /usr/bin

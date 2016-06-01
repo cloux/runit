@@ -6,3 +6,4 @@ ${RUNIT}/man/svlogd.8
 ${RUNIT}/man/chpst.8
 ${RUNIT}/man/runsvchdir.8
 ${RUNIT}/man/utmpset.8
+debian/update-service.8

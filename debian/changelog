@@ -1,4 +1,4 @@
-runit (2.1.2-4) unstable; urgency=medium
+runit (2.1.2-4) UNRELEASED; urgency=medium
 
   * New maintainer
   * Bump standards version to 3.9.8 (no changes needed)
@@ -29,7 +29,7 @@ runit (2.1.2-4) unstable; urgency=medium
   * Remove scripting in runit's maintainer scripts to adjust /etc/inittab.
     It will be provided as separate package.
 
- -- Dmitry Bogatov <KAction@gnu.org>  Wed, 16 Mar 2016 17:41:35 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Wed, 01 Jun 2016 20:45:22 +0300
 
 runit (2.1.2-3) unstable; urgency=medium
 
