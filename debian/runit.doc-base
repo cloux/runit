@@ -1,0 +1,15 @@
+Document: runit
+Title: System-wide service supervision
+Author: Gerrit Pape
+Abstract: Runit is a collection of tools to provide system-wide
+ service supervision and to manage services.  Contrary to sysv init,
+ it not only cares about starting and stopping services, but also
+ supervises the service daemons while they are running.  Amongst other
+ things, it provides a reliable interface to send signals to service
+ daemons without the need for pid-files, and a log facility with
+ automatic log file rotation and disk space limits.
+Section: System/Administration
+
+Format: HTML
+Index: /usr/share/doc/runit/html/index.html
+Files: /usr/share/doc/runit/html/*.html

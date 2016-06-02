@@ -1,4 +1,4 @@
-runit (2.1.2-4) UNRELEASED; urgency=medium
+runit (2.1.2-4) unstable; urgency=medium
 
   * New maintainer
   * Bump standards version to 3.9.8 (no changes needed)
@@ -30,6 +30,7 @@ runit (2.1.2-4) UNRELEASED; urgency=medium
     It will be provided as separate package.
   * Make buildsystem respect dpkg-buildflags.
   * Enable hardening
+  * Register documentation with doc-base (Policy 9.10)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 01 Jun 2016 20:45:22 +0300
 
