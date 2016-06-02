@@ -44,7 +44,7 @@ Description: system-wide service supervision (systemd integration)
 
 Package: runit-init
 Architecture: any
-Depends: runit (= ${binary:Version}), ${misc:Depends}, ${shlib:Depends}
+Depends: runit (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
 Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
 Conflicts: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
 Priority: extra
