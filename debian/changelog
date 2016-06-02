@@ -31,6 +31,7 @@ runit (2.1.2-4) unstable; urgency=medium
   * Make buildsystem respect dpkg-buildflags.
   * Enable hardening
   * Register documentation with doc-base (Policy 9.10)
+  * Move communication files under /run to work with read-only /etc
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 01 Jun 2016 20:45:22 +0300
 

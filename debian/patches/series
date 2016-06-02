@@ -4,3 +4,4 @@
 0003-utmpset.c-mixes-int32_t-and-time_t.diff
 0004-src-Makefile-don-t-use-static-to-link-runit-runit-ini.diff
 0006-make-buildsystem-respect-CFLAGS.patch
+0007-move-communication-files.patch
