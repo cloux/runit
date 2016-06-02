@@ -7,3 +7,7 @@ export DEB_BUILD_OPTIONS = hardening=+all
 
 override_dh_systemd_enable:
 	dh_systemd_enable --name runit
+override_dh_installman:
+	dh_installman
+	mv debian/runit-init/usr/share/man/man8/runit-init.8 \
+           debian/runit-init/usr/share/man/man8/init.8
