@@ -98,5 +98,5 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 -#define REBOOT "/etc/runit/reboot"
 +#define STOPIT "/run/runit.stopit"
 +#define REBOOT "/run/runit.reboot"
- #define NOSYNC "/erc/runit/nosync"
+ #define NOSYNC "/run/runit.nosync"
  #define CTRLALTDEL "/etc/runit/ctrlaltdel"
