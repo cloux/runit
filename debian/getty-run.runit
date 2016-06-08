@@ -1,0 +1,6 @@
+enable debian/runscripts/getty-tty1
+enable debian/runscripts/getty-tty2
+enable debian/runscripts/getty-tty3
+enable debian/runscripts/getty-tty4
+enable debian/runscripts/getty-tty5
+enable debian/runscripts/getty-tty6

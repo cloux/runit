@@ -8,6 +8,7 @@ Build-Depends: bash-completion,
                debhelper (>= 9.20160403),
                dh-exec (>= 0.23),
                dh-systemd,
+               dh-runit,
                doc-base
 Vcs-Browser: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
 Vcs-Git: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
@@ -15,7 +16,6 @@ Vcs-Git: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
 Package: runit
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Recommends: fgetty
 Suggests: socklog-run
 Description: system-wide service supervision
  runit is a collection of tools to provide system-wide service supervision
@@ -41,6 +41,15 @@ Description: system-wide service supervision (systemd integration)
  and a log facility with automatic log file rotation and disk space limits.
  .
  This package provides service file to start runit supervision via systemd.
+
+Package: getty-run
+Architecture: all
+Recommends: fgetty
+Depends: runit, ${misc:Depends}, ${shlibs:Depends}
+Description: runscripts to supervise getty processes
+ getty-run provides scripts to supervise getty processes, allowing
+ local login. If system is booted with init=/sbin/runit this package
+ is probably necessery.
 
 Package: runit-init
 Architecture: any
