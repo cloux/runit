@@ -45,7 +45,7 @@ Description: system-wide service supervision (systemd integration)
 Package: getty-run
 Architecture: all
 Recommends: fgetty
-Depends: runit, ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: runscripts to supervise getty processes
  getty-run provides scripts to supervise getty processes, allowing
  local login. If system is booted with init=/sbin/runit this package
