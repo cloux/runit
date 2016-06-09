@@ -5,3 +5,4 @@
 0004-src-Makefile-don-t-use-static-to-link-runit-runit-ini.diff
 0006-make-buildsystem-respect-CFLAGS.patch
 0007-move-communication-files.patch
+0008-emulate-sysv-runlevel-5.patch
