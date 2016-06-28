@@ -4,7 +4,7 @@ export DEB_BUILD_OPTIONS = hardening=+all
 
 %:
 	dh $@ --sourcedirectory=runit-$(DEB_VERSION_UPSTREAM)/src \
-	      --with bash_completion,systemd,runit
+	      --with bash_completion,systemd,runit --parallel
 
 override_dh_systemd_enable:
 	dh_systemd_enable --name runit
