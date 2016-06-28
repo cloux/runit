@@ -1,0 +1,3 @@
+# Package is deliberately empty, it includes runit clause into
+# /etc/inittab on installation and excludes it on removal.
+empty-binary-package

@@ -42,6 +42,19 @@ Description: system-wide service supervision (systemd integration)
  .
  This package provides service file to start runit supervision via systemd.
 
+Package: runit-sysv
+Architecture: all
+Depends: runit, ${misc:Depends}, ${shlibs:Depends}
+Description: system-wide service supervision (sysv integration)
+ runit is a collection of tools to provide system-wide service supervision
+ and to manage services.  Contrary to sysv init, it not only cares about
+ starting and stopping services, but also supervises the service daemons
+ while they are running.  Amongst other things, it provides a reliable
+ interface to send signals to service daemons without the need for pid-files,
+ and a log facility with automatic log file rotation and disk space limits.
+ .
+ Presence of this package ensures, that runit will be started via /etc/inittab.
+
 Package: getty-run
 Architecture: all
 Recommends: fgetty
@@ -49,7 +62,7 @@ Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: runscripts to supervise getty processes
  getty-run provides scripts to supervise getty processes, allowing
  local login. If system is booted with init=/sbin/runit this package
- is probably necessery.
+ is probably necessary.
 
 Package: runit-init
 Architecture: any

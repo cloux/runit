@@ -1,0 +1,11 @@
+#!/bin/sh
+set -e
+
+awk '
+/^#runit-sysv maintscript -- BEGIN/ { flag = 1 }
+                                    { if (flag == 0) print; }
+/^#runit-sysv maintscript -- END/   { flag = 0 }
+' /etc/inittab > /etc/inittab.tmp
+mv /etc/inittab.tmp /etc/inittab
+
+#DEBHELPER#

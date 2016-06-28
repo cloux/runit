@@ -1,0 +1,12 @@
+#!/bin/sh
+set -e
+if ! grep -q '^#runit-sysv maintscript -- BEGIN' /etc/inittab ; then
+    cat /etc/inittab - <<EOF > /etc/inittab.tmp
+#runit-sysv maintscript -- BEGIN
+SV:123456:respawn:/etc/runit/2
+#runit-sysv maintscript -- END
+EOF
+    mv /etc/inittab.tmp /etc/inittab
+fi
+
+#DEBHELPER#
