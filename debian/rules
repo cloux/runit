@@ -26,6 +26,10 @@ debian/runscripts/getty-%/finish: debian/runscripts/getty.finish.x
 runscripts/getty: $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n/run)
 runscripts/getty: $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n/finish)
 
+override_dh_clean:
+	rm -fr $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n)
+	dh_clean
+
 .PHONY: runscripts/getty
 
 
