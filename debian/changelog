@@ -35,6 +35,7 @@ runit (2.1.2-4) unstable; urgency=medium
   * Move getty runscripts into separate binary package
   * Emulalate sysv runlevel 5 by default.
   * Bump debhelper compat to 10.
+  * Install upstream changelog
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 01 Jun 2016 20:45:22 +0300
 
