@@ -22,7 +22,7 @@ runit (2.1.2-4) unstable; urgency=medium
     version as 'debian/2'
   * Remove unused 'examples/start-stop-daemon' script.
   * Utilize 'dh_bash-completion' to install bash completion snippet
-  * Utilitze 'dh_systemd' to install systemd service file into new binary
+  * Utilize 'dh_systemd' to install systemd service file into new binary
     package 'runit-systemd'.
   * Delete runsvdir-start symbolic link. Note is left in NEWS file
   * Rename runit.NEWS.Debian to runit.NEWS to be installed by debhelper
@@ -33,7 +33,7 @@ runit (2.1.2-4) unstable; urgency=medium
   * Register documentation with doc-base (Policy 9.10)
   * Move communication files under /run to work with read-only /etc
   * Move getty runscripts into separate binary package
-  * Emulalate sysv runlevel 5 by default.
+  * Emulate sysv runlevel 5 by default.
   * Bump debhelper compat to 10.
   * Install upstream changelog
   * Remove out-of-date README.Debian
