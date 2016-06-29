@@ -44,7 +44,7 @@ Description: system-wide service supervision (systemd integration)
 
 Package: runit-sysv
 Architecture: all
-Depends: runit, ${misc:Depends}, ${shlibs:Depends}
+Depends: runit, ${misc:Depends}, ${shlibs:Depends}, sysvinit-core
 Description: system-wide service supervision (sysv integration)
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about
