@@ -34,7 +34,7 @@ runit (2.1.2-4) experimental; urgency=medium
   * Move communication files under /run to work with read-only /etc
   * Move getty runscripts into separate binary package
   * Emulate sysv runlevel 5 by default.
-  * Bump debhelper compat to 10.
+  * Bump debhelper compat to 9.
   * Install upstream changelog
   * Remove out-of-date README.Debian
 
