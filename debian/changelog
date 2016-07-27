@@ -1,3 +1,9 @@
+runit (2.1.2-5) unstable; urgency=medium
+
+  * Fix `dpkg-buildpackage -A' builds (Closes: #832545)
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Wed, 27 Jul 2016 15:28:11 +0300
+
 runit (2.1.2-4) unstable; urgency=medium
 
   * New maintainer

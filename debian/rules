@@ -8,7 +8,8 @@ export DEB_BUILD_OPTIONS = hardening=+all
 
 override_dh_systemd_enable:
 	dh_systemd_enable --name runit
-override_dh_installman:
+
+override_dh_installman-arch:
 	dh_installman
 	mv debian/runit-init/usr/share/man/man8/runit-init.8 \
            debian/runit-init/usr/share/man/man8/init.8
@@ -35,5 +36,3 @@ override_dh_installchangelogs:
 	    runit-$(DEB_VERSION_UPSTREAM)/package/CHANGES
 
 .PHONY: runscripts/getty
-
-
