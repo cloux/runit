@@ -32,6 +32,8 @@ Description: system-wide service supervision
 
 Package: runit-systemd
 Architecture: all
+Breaks: runit (<< 2.1.2-4)
+Replaces: runit (<< 2.1.2-4)
 Depends: runit, systemd-sysv, ${misc:Depends}, ${shlibs:Depends}
 Description: system-wide service supervision (systemd integration)
  runit is a collection of tools to provide system-wide service supervision
