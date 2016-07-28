@@ -5,6 +5,7 @@ runit (2.1.2-5) unstable; urgency=medium
   * Record versions of build dependencies via dh-buildinfo
   * Add Breaks+Replaces fields for runit-systemd (Closes: #832653)
     (Policy 7.6)
+  * Fix bash completion installation
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 27 Jul 2016 15:28:11 +0300
 
