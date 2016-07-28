@@ -2,6 +2,7 @@ runit (2.1.2-5) unstable; urgency=medium
 
   * Fix `dpkg-buildpackage -A' builds (Closes: #832545)
   * Tighten dependency on dh-runit (Closes: #832651)
+  * Record versions of build dependencies via dh-buildinfo
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 27 Jul 2016 15:28:11 +0300
 
