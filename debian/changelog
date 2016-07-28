@@ -7,7 +7,7 @@ runit (2.1.2-5) unstable; urgency=medium
     (Policy 7.6)
   * Fix bash completion installation
 
- -- Dmitry Bogatov <KAction@gnu.org>  Wed, 27 Jul 2016 15:28:11 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Thu, 28 Jul 2016 19:01:07 +0300
 
 runit (2.1.2-4) unstable; urgency=medium
 
