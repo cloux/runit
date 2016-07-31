@@ -1,3 +1,9 @@
+runit (2.1.2-6) UNRELEASED; urgency=medium
+
+  * Fix factual error in runsv(8) (Closes: #814044)
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Sun, 31 Jul 2016 13:33:11 +0300
+
 runit (2.1.2-5) unstable; urgency=medium
 
   * Fix `dpkg-buildpackage -A' builds (Closes: #832545)
