@@ -1,0 +1,21 @@
+Subject: svlogd, when rotating, sets the log files as executable. Why?
+From: Jamie Heilman <jamie@audible.transient.net>
+Date: Mon, 8 Feb 2016 06:12:27 +0000
+
+  This is all based off daemontools' multilog ...
+
+  https://cr.yp.to/daemontools/multilog.html
+
+  ... which states:
+
+    While multilog is running, current has mode 644. If multilog sees
+    the end of stdin, it writes current safely to disk, and sets the
+    mode of current to 744. When it restarts, it sets the mode of
+    current back to 644 and continues writing new lines.
+
+    When multilog decides that current is big enough, it writes current
+    safely to disk, sets the mode of current to 744, and renames current
+    as an old log file.
+
+  Thus it's effectively using the mode bits as flag to communicate the
+  state of the application, which while unusual, is harmless.

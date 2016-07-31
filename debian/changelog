@@ -1,6 +1,11 @@
 runit (2.1.2-6) UNRELEASED; urgency=medium
 
   * Fix factual error in runsv(8) (Closes: #814044)
+  * Create FAQ and document in it purpose of executable logfiles
+    (Closes: #784276)
+  * set KillSignal=SIGHUP and KillMode=process in systemd runit to assure
+    clean shutdown of runit tasks (Closes: #810328)
+    (Thanks: Johannes Ziemke <fish@freigeist.org>)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sun, 31 Jul 2016 13:33:11 +0300
 

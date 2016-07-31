@@ -4,6 +4,8 @@ Documentation=Runit service supervision
 
 [Service]
 ExecStart=/etc/runit/2
+KillSignal=SIGHUP
+KillMode=process
 Restart=always
 
 [Install]
