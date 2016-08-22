@@ -7,6 +7,7 @@ runit (2.1.2-6) UNRELEASED; urgency=medium
     clean shutdown of runit tasks (Closes: #810328)
     (Thanks: Johannes Ziemke <fish@freigeist.org>)
   * Fix compatibility with dh-runit (>= 1.5)
+  * Fix description in systemd unit file (Closes: #835064)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sun, 31 Jul 2016 13:33:11 +0300
 

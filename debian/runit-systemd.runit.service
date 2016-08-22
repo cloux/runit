@@ -1,6 +1,6 @@
 [Unit]
 Description=Runit service supervision
-Documentation=Runit service supervision
+Documentation=http://smarden.org/runit/
 
 [Service]
 ExecStart=/etc/runit/2
