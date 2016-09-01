@@ -1,3 +1,12 @@
+runit (2.1.2-7) UNRELEASED; urgency=medium
+
+  * Create /etc/runit/runsvdir/default directory and /etc/service directories
+    as part of binary package, not in maintainer scripts. Empty directories are
+    not pretty, but usually user installs some runscripts with 'runit' binary
+    package, and will not notice issue.
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Wed, 31 Aug 2016 14:02:50 +0300
+
 runit (2.1.2-6) unstable; urgency=medium
 
   * Fix factual error in runsv(8) (Closes: #814044)

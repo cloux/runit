@@ -8,7 +8,7 @@ Build-Depends: bash-completion,
                debhelper (>= 9),
                dh-exec,
                dh-systemd,
-               dh-runit (>= 1.5),
+               dh-runit (>= 1.6),
                dh-buildinfo (>= 0.11+nmu1),
                doc-base
 Vcs-Browser: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
