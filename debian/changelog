@@ -4,6 +4,7 @@ runit (2.1.2-7) UNRELEASED; urgency=medium
     as part of binary package, not in maintainer scripts. Empty directories are
     not pretty, but usually user installs some runscripts with 'runit' binary
     package, and will not notice issue.
+  * Make upgrade from version 2.1.2-3 piuparts-clean.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Wed, 31 Aug 2016 14:02:50 +0300
 
