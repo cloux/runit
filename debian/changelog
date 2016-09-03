@@ -1,4 +1,4 @@
-runit (2.1.2-7) UNRELEASED; urgency=medium
+runit (2.1.2-7) experimental; urgency=medium
 
   * Create /etc/runit/runsvdir/default directory and /etc/service directories
     as part of binary package, not in maintainer scripts. Empty directories are
@@ -7,7 +7,7 @@ runit (2.1.2-7) UNRELEASED; urgency=medium
   * Make upgrade from previous revisions (3,5,6th) piuparts-clean
     (Closes: #835278)
 
- -- Dmitry Bogatov <KAction@gnu.org>  Wed, 31 Aug 2016 14:02:50 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Sat, 03 Sep 2016 20:51:31 +0300
 
 runit (2.1.2-6) unstable; urgency=medium
 
