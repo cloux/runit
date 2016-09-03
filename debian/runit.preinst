@@ -16,6 +16,12 @@ if [ "$1" = upgrade ] ; then
 			# will be created by first -run package anyway.
 			rmdir --ignore-fail-on-non-empty /etc/sv
 			;;
+		2.1.2-6)
+			find /etc/runit
+			rm -f /etc/runit/runsvdir/current
+			rmdir --ignore-fail-on-non-empty /etc/runit/runsvdir/
+			rmdir --ignore-fail-on-non-empty /etc/runit
+			;;
 	esac
 fi
 
