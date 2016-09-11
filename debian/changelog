@@ -1,3 +1,10 @@
+runit (2.1.2-8) unstable; urgency=medium
+
+  * Upload for unstable
+  * Drop `socklog-run' suggestion due clash with system (Closes: #836846)
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Sun, 11 Sep 2016 20:55:14 +0300
+
 runit (2.1.2-7) experimental; urgency=medium
 
   * Create /etc/runit/runsvdir/default directory and /etc/service directories

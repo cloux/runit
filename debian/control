@@ -17,7 +17,6 @@ Vcs-Git: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
 Package: runit
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Suggests: socklog-run
 Description: system-wide service supervision
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about
