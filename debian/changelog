@@ -1,6 +1,6 @@
 runit (2.1.2-8) unstable; urgency=medium
 
-  * Upload for unstable
+  * Upload to unstable
   * Drop `socklog-run' suggestion due clash with system (Closes: #836846)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sun, 11 Sep 2016 20:55:14 +0300
