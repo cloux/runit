@@ -69,6 +69,7 @@ Description: runscripts to supervise getty processes
 Package: runit-init
 Architecture: any
 Depends: runit (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
+Recommends: getty-run
 Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
 Conflicts: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
 Priority: extra
