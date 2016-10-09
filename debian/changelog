@@ -4,6 +4,8 @@ runit (2.1.2-9) UNRELEASED; urgency=medium
     system with no means to login.
   * Add sysvinit-compatible scripts (reboot, shutdown), which are expected
     by graphical interface to perform these actions.
+  * Add sysvinit-compatible script runlevel. While it does not perform
+    anything useful, invoke-rc.d expects it's presence.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 22 Sep 2016 12:11:33 +0300
 
