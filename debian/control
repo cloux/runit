@@ -62,14 +62,19 @@ Architecture: all
 Recommends: fgetty
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: runscripts to supervise getty processes
- getty-run provides scripts to supervise getty processes, allowing
- local login. If system is booted with init=/sbin/runit this package
- is probably necessary.
+ runit is a collection of tools to provide system-wide service supervision
+ and to manage services.  Contrary to sysv init, it not only cares about
+ starting and stopping services, but also supervises the service daemons
+ while they are running.  Amongst other things, it provides a reliable
+ interface to send signals to service daemons without the need for pid-files,
+ and a log facility with automatic log file rotation and disk space limits.
+ .
+ This package provides scripts to supervise getty processes, allowing
+ local login.
 
 Package: runit-init
 Architecture: any
-Depends: runit (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}
-Recommends: getty-run
+Depends: runit (= ${binary:Version}), ${misc:Depends}, ${shlibs:Depends}, getty-run
 Replaces: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
 Conflicts: systemd-sysv, sysvinit (<< 2.88dsf-44~), sysvinit-core, upstart
 Priority: extra
