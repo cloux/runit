@@ -1,3 +1,5 @@
 #!/usr/bin/dh-exec
 runit-2.1.2/src/runit-init => /sbin/init
 runit-2.1.2/src/runit      /sbin
+debian/contrib/shutdown /sbin
+debian/contrib/reboot   /sbin

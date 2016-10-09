@@ -2,6 +2,8 @@ runit (2.1.2-9) UNRELEASED; urgency=medium
 
   * Make runit-init depends getty-run, otherwise user can end up with
     system with no means to login.
+  * Add sysvinit-compatible scripts (reboot, shutdown), which are expected
+    by graphical interface to perform these actions.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 22 Sep 2016 12:11:33 +0300
 
