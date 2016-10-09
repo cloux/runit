@@ -6,6 +6,7 @@ runit (2.1.2-9) UNRELEASED; urgency=medium
     by graphical interface to perform these actions.
   * Add sysvinit-compatible script runlevel. While it does not perform
     anything useful, invoke-rc.d expects it's presence.
+  * Remove unused source linitian overrides, since package builds with compat 9
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 22 Sep 2016 12:11:33 +0300
 

@@ -1,2 +1,0 @@
-package-uses-experimental-debhelper-compat-version 10
-package-needs-versioned-debhelper-build-depends 10
