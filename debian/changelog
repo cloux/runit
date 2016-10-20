@@ -1,3 +1,12 @@
+runit (2.1.2-10) UNRELEASED; urgency=medium
+
+  * Replace DEB_BUILD_OPTIONS with DEB_BUILD_MAINT_OPTIONS, since the former
+    is meant for user, rebuilding package and overrides the latter.
+      + Thanks: Gianfranco Costamagna <locutusofborg@debian.org>
+
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Thu, 20 Oct 2016 13:41:31 +0300
+
 runit (2.1.2-9) unstable; urgency=medium
 
   * Make runit-init depends getty-run, otherwise user can end up with
