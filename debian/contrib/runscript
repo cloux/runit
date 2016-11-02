@@ -1,0 +1,86 @@
+#!/bin/sh
+# runscript --- manage runscripts that are not part of debian package
+
+# Copyright (C) 2016 Dmitry Bogatov <KAction@gnu.org>
+
+# Author: Dmitry Bogatov <KAction@gnu.org>
+
+# This program is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License
+# as published by the Free Software Foundation; either version 3
+# of the License, or (at your option) any later version.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
+set -eu
+COLOR_RED=$(tput setaf 1)
+COLOR_YELLOW=$(tput setaf 3)
+COLOR_BLUE=$(tput setaf 4)
+COLOR_BOLD=$(tput bold)
+COLOR_RESET=$(tput sgr0)
+
+check_svdir () {
+	if [ -z "${SVDIR:-}" ] ; then
+		if [ $(id -u) -eq 0 ] ; then
+			SVDIR=/etc/service
+		else
+			SVDIR=$HOME/.service
+		fi
+		info "SVDIR is not set. Using default value $SVDIR".
+	fi
+	[ -d "$SVDIR" ] || error "SVDIR=$SVDIR: no such directory"
+	[ -w "$SVDIR" ] || error "SVDIR=$SVDIR: permission denied"
+}
+
+info () { echo "${COLOR_BOLD}${COLOR_BLUE}info:${COLOR_RESET}" "$@"; }
+error() { echo "${COLOR_BOLD}${COLOR_RED}error:${COLOR_RESET}" "$@"; exit 1; }
+
+help () {
+	cat <<'EOF'
+Usage: runscript [--add|--remove] TYPE [ARGS]
+
+Add or remove runscript of specified type into SVDIR. Currently
+supported types are:
+
+ * unprivilleged: create runscript, that creates runit instance,
+   that supervise services in non-root user's private ~/.service
+   directory. The only argument is username.
+EOF
+}
+
+case "${1:--invalid}" in
+	--add)
+		action=add
+		;;
+	--remove)
+		action=remove
+		;;
+	--help)
+		help
+		exit 0
+		;;
+	*)
+		help
+		exit 1
+		;;
+esac
+shift
+
+check_svdir
+
+[ -n "${1:-}" ] || error "runscript type is not specified. Try --help."
+case "$1" in
+	unprivilleged)
+		CFG_USER=${2:-}
+		[ -n "$CFG_USER" ] || error "missing argument USERNAME"
+		if ! getent passwd "$CFG_USER" >/dev/null ; then
+			error "unknown user \`$CFG_USER'"
+		fi
+		SV_NAME="unprivilleged.$CFG_USER"
+		;;
+esac
