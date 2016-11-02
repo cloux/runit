@@ -24,11 +24,11 @@ debian/runscripts/getty-%/finish: debian/runscripts/getty.finish.x
 	mkdir -p $(@D)
 	$< $* > $@
 
-runscripts/getty: $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n/run)
-runscripts/getty: $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n/finish)
+GETTY_SERVICE_DIRS = $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n)
+runscripts/getty: $(GETTY_SERVICE_DIRS:%=%/run) $(GETTY_SERVICE_DIRS:%=%/finish)
 
 override_dh_clean:
-	rm -fr $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n)
+	rm -fr $(GETTY_SERVICE_DIRS)
 	dh_clean
 override_dh_installchangelogs:
 	dh_installchangelogs
