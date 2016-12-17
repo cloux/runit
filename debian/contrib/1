@@ -9,4 +9,4 @@ PATH=/sbin:/usr/sbin:/bin:/usr/bin
 touch /run/runit.stopit
 chmod 0 /run/runit.stopit
 
-[ -e /etc/runit/no-emulate-sysv ] || /etc/init.d/rc 5
+[ -e /etc/runit/no-emulate-sysv ] || /etc/init.d/rc 2
