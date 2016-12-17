@@ -9,6 +9,6 @@ runit-*/src/chpst      /usr/bin
 runit-*/src/runsvchdir /usr/sbin
 runit-*/src/utmpset    /usr/sbin
 
-runit-*/etc/debian/1   /etc/runit
-runit-*/etc/2          /etc/runit
-runit-*/etc/debian/3   /etc/runit
+debian/contrib/1       /etc/runit
+debian/contrib/2       /etc/runit
+debian/contrib/3       /etc/runit

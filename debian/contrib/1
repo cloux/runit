@@ -1,0 +1,12 @@
+#!/bin/sh
+# system one time tasks
+
+PATH=/command:/sbin:/bin:/usr/sbin:/usr/bin
+
+/etc/init.d/rcS
+/etc/init.d/rmnologin
+
+touch /run/runit.stopit
+chmod 0 /run/runit.stopit
+
+[ -e /etc/runit/no-emulate-sysv ] || /etc/init.d/rc 5
