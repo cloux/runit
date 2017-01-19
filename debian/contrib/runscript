@@ -76,11 +76,29 @@ check_svdir
 [ -n "${1:-}" ] || error "runscript type is not specified. Try --help."
 case "$1" in
 	unprivilleged)
+		DOTS=$(seq 40|paste -s|sed 's/././g')
 		CFG_USER=${2:-}
 		[ -n "$CFG_USER" ] || error "missing argument USERNAME"
 		if ! getent passwd "$CFG_USER" >/dev/null ; then
 			error "unknown user \`$CFG_USER'"
 		fi
+		CFG_HOME=$(getent passwd "$CFG_USER"|cut -d: -f6)
 		SV_NAME="unprivilleged.$CFG_USER"
+		case "$action" in
+			add)
+				mkdir -p "$SVDIR/$SV_NAME"
+				cat <<EOF > "$SVDIR/$SV_NAME/run"
+#!/bin/sh
+exec 2>&1
+export USER='$CFG_USER'
+export HOME='$CFG_HOME'
+exec chpst -u '$CFG_USER' runsvdir -P '$CFG_HOME/.service' '$DOTS'
+EOF
+				chmod +x "$SVDIR/$SV_NAME/run"
+				;;
+			remove)
+				rm -r "${SVDIR:?}/$SV_NAME"
+				;;
+		esac
 		;;
 esac
