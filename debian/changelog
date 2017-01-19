@@ -4,8 +4,11 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
     is meant for user, rebuilding package and overrides the latter.
       + Thanks: Gianfranco Costamagna <locutusofborg@debian.org>
 
+  * Add 'runscript' program into 'runit' binary package, intended to
+    simplify for system administrator management of per-user 'runsvdir'
+    processes.
 
- -- Dmitry Bogatov <KAction@gnu.org>  Thu, 20 Oct 2016 13:41:31 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 
 runit (2.1.2-9) unstable; urgency=medium
 

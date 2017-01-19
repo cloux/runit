@@ -1,6 +1,8 @@
 runit-*/doc/*[a-z].html     /usr/share/doc/runit/html
 debian/contrib/update-service        /sbin
 
+debian/contrib/runscript /usr/bin
+
 runit-*/src/runsvdir   /usr/bin
 runit-*/src/runsv      /usr/bin
 runit-*/src/sv         /usr/bin
