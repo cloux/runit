@@ -3,4 +3,4 @@ systype="`cat systype`"
 
 cat warn-auto.sh
 echo 'main="$1"; shift'
-echo exec "$ld" '-o "$main" "$main".o ${1+"$@"}'
+echo exec "$ld" "$LDFLAGS" '-o "$main" "$main".o ${1+"$@"}'

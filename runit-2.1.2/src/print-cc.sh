@@ -2,4 +2,4 @@ cc="`head -n1 conf-cc`"
 systype="`cat systype`"
 
 cat warn-auto.sh
-echo exec "$cc" '-c ${1+"$@"}'
+echo exec "$cc" "$CPPFLAGS" "$CFLAGS" '-c ${1+"$@"}'

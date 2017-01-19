@@ -45,9 +45,14 @@ done here.
 If stage 3 returns,
 .B runit
 checks if the file
-.I /etc/runit/reboot
+.I /run/runit.reboot
 exists and has the execute by owner permission set.
 If so, the system is rebooted, it's halted otherwise.
+If
+.I /run/runit.nosync
+exists,
+.B runit
+doesn't invoke sync(). This is useful in vservers.
 .SH CTRL-ALT-DEL
 If
 .B runit
@@ -65,7 +70,7 @@ only accepts signals in stage 2.
 If
 .B runit
 receives a CONT signal and the file
-.I /etc/runit/stopit
+.I /run/runit.stopit
 exists and has the execute by owner permission set,
 .B runit
 is told to shutdown the system.

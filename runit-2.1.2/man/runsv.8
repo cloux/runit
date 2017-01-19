@@ -54,10 +54,8 @@ and
 .IR service /finish's
 standard output to the pipe, switches to the directory
 .IR service /log
-and starts ./run (and ./finish) exactly as described above for the
-.I service
-directory.
-The standard input of the log service is redirected to read from the pipe.
+and starts ./run script. The standard input of the log service
+is redirected to read from the pipe.
 .P
 .B runsv
 maintains status information in a binary format (compatible to the
@@ -157,9 +155,9 @@ This command is ignored if it is given to
 .IR service /log/supervise/control.
 .P
 Example: to send a TERM signal to the socklog-unix service, either do
-  # sv term /service/socklog-unix
+  # sv term /etc/service/socklog-unix
  or
-  # printf t >/service/socklog-unix/supervise/control
+  # printf t >/etc/service/socklog-unix/supervise/control
 .P
 .BR printf (1)
 usually blocks if no

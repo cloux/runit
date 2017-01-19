@@ -6,5 +6,7 @@ PATH=/command:/sbin:/bin:/usr/sbin:/usr/bin
 /etc/init.d/rcS
 /etc/init.d/rmnologin
 
-touch /etc/runit/stopit
-chmod 0 /etc/runit/stopit
+touch /run/runit.stopit
+chmod 0 /run/runit.stopit
+
+[ -e /etc/runit/no-emulate-sysv ] || /etc/init.d/rc 5
