@@ -3,12 +3,27 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
   * Replace DEB_BUILD_OPTIONS with DEB_BUILD_MAINT_OPTIONS, since the former
     is meant for user, rebuilding package and overrides the latter.
       + Thanks: Gianfranco Costamagna <locutusofborg@debian.org>
-
   * Add 'runscript' program into 'runit' binary package, intended to
     simplify for system administrator management of per-user 'runsvdir'
     processes.
+  * Incorporate NMU. Bring back runit-init package.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
+
+runit (2.1.2-9.2) unstable; urgency=medium
+
+  * non-maintainer upload
+  * re-add /sbin/runit{,-init} to runit package so it remains possible to
+    use runit as PID 1
+
+ -- Daniel Kahn Gillmor <dkg@fifthhorseman.net>  Wed, 31 May 2017 12:44:38 -0400
+
+runit (2.1.2-9.1) unstable; urgency=medium
+
+  * non-maintainer upload
+  * drop runit-init package (Closes: #861536)
+
+ -- Daniel Kahn Gillmor <dkg@fifthhorseman.net>  Tue, 30 May 2017 11:46:28 -0400
 
 runit (2.1.2-9) unstable; urgency=medium
 
