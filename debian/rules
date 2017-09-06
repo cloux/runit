@@ -1,6 +1,8 @@
 #!/usr/bin/make -f
-include /usr/share/dpkg/default.mk
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+include /usr/share/dpkg/default.mk
+export CFLAGS  += $(shell getconf LFS_CFLAGS)
+export LDFLAGS += $(shell getconf LFS_LDFLAGS)
 
 %:
 	dh $@ --sourcedirectory=runit-$(DEB_VERSION_UPSTREAM)/src \
