@@ -7,6 +7,8 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
     simplify for system administrator management of per-user 'runsvdir'
     processes.
   * Incorporate NMU. Bring back runit-init package.
+  * Add support for sysvinit control pipe into shutdown script, solving issue
+    with reboot just after runit-init installation. (Closes: #861536)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 

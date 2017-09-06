@@ -4,3 +4,4 @@ runit-2.1.2/src/runit      /sbin
 debian/contrib/shutdown /sbin
 debian/contrib/reboot   /sbin
 debian/contrib/runlevel /sbin
+debian/contrib/halt     /sbin

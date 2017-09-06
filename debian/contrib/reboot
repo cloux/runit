@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /sbin/init 6
+exec /sbin/shutdown 6
