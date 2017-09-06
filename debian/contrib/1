@@ -3,10 +3,15 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
-/etc/init.d/rcS
-/etc/init.d/rmnologin
 
 touch /run/runit.stopit
 chmod 0 /run/runit.stopit
 
-[ -e /etc/runit/no-emulate-sysv ] || /etc/init.d/rc 2
+for initdir in /etc/rcS.d /etc/rc2.d ; do
+	for script in "$initdir/S"* ; do
+		path=$(realpath "$script")
+		name=$(basename "$path")
+		[ -d "/etc/sv/$name" ] || "$script" start
+	done
+done
+unset path name

@@ -10,6 +10,10 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
   * Add compiler flags for large file support.
   * Add support for sysvinit control pipe into shutdown script, solving issue
     with reboot just after runit-init installation. (Closes: #861536)
+  * Add dependency on initscripts. While initscripts probably could be
+    simplified, right now it is simpler to rely on it to make sure, that
+    transition from sysvinit is smooth. On other hand, if both runscript
+    and initscript are present, runscript is favored.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 
