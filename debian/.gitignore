@@ -1,5 +1,5 @@
 tmp/
-runscripts/
+runscripts/getty-*
 runit/
 runit-systemd/
 runit-sysv/
