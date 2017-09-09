@@ -8,6 +8,10 @@ export LDFLAGS += $(shell getconf LFS_LDFLAGS)
 	dh $@ --sourcedirectory=runit-$(DEB_VERSION_UPSTREAM)/src \
 	      --with bash_completion,systemd,runit,buildinfo --parallel
 
+override_dh_auto_configure:
+	echo $(CC) $(CFLAGS) > runit-$(DEB_VERSION_UPSTREAM)/src/conf-cc
+	echo $(CC) > runit-$(DEB_VERSION_UPSTREAM)/src/conf-ld
+
 override_dh_auto_build:
 	$(MAKE) debian/contrib/shutdown
 	dh_auto_build

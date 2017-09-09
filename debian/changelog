@@ -14,6 +14,9 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
     simplified, right now it is simpler to rely on it to make sure, that
     transition from sysvinit is smooth. On other hand, if both runscript
     and initscript are present, runscript is favored.
+  * Write CFLAGS and LDFLAGS into conf-ld/conf-cc. Without it, upstream
+    build system strips binaries, wasting precious debug information that
+    must be stored in -dbg symbols.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 
