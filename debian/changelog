@@ -17,6 +17,9 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
   * Write CFLAGS and LDFLAGS into conf-ld/conf-cc. Without it, upstream
     build system strips binaries, wasting precious debug information that
     must be stored in -dbg symbols.
+  * Check for executable bit on /run/runit.reboot with stat(1), not
+    test(1).  If /run is mounted with 'noexec' option, test(1) gives
+    unexpected results.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 

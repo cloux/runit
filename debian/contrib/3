@@ -4,7 +4,11 @@ exec 2>&1
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
 LAST=0
-test -x /run/runit.reboot && LAST=6
+
+# While test -x is more natural, it does not consider file with
+# executable bit set on 'noexec' filesystem as executable, and /run
+# often is mounted as 'noexec'.
+[ $(stat -c %a /run/runit.reboot) = 100 ] && LAST=6
 
 echo 'Waiting for services to stop...'
 sv -w196 force-stop /etc/service/*
