@@ -20,6 +20,11 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
   * Check for executable bit on /run/runit.reboot with stat(1), not
     test(1).  If /run is mounted with 'noexec' option, test(1) gives
     unexpected results.
+  * Reduce timeout between SIGTERM and SIGKILL on system shutdown.
+
+    Default 7 seconds is reasonable for well-behaving program, and waiting
+    longer does not help with programs, which ignore SIGTERM, like
+    startx(1) in some configurations.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 

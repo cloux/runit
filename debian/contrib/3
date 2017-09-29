@@ -11,7 +11,7 @@ LAST=0
 [ $(stat -c %a /run/runit.reboot) = 100 ] && LAST=6
 
 echo 'Waiting for services to stop...'
-sv -w196 force-stop /etc/service/*
+sv force-stop /etc/service/*
 sv exit /etc/service/*
 
 echo 'Shutdown...'
