@@ -7,7 +7,7 @@
 
 _sv_services()
 {
-    echo $(ls /etc/service/)
+    /bin/ls --color=no "${SVDIR:-/etc/service}"
 }
 
 _sv_commands()

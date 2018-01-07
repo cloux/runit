@@ -25,6 +25,8 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
     Default 7 seconds is reasonable for well-behaving program, and waiting
     longer does not help with programs, which ignore SIGTERM, like
     startx(1) in some configurations.
+  * Fix problem with bash completion script when ls(1) output color control
+    sequences.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 
