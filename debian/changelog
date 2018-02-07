@@ -27,6 +27,8 @@ runit (2.1.2-10) UNRELEASED; urgency=medium
     startx(1) in some configurations.
   * Fix problem with bash completion script when ls(1) output color control
     sequences.
+  * Update Vcs-* fields in debian/control. Now on GitLab instance at
+    salsa.debian.org
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 

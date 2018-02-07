@@ -11,8 +11,8 @@ Build-Depends: bash-completion,
                dh-runit (>= 1.6),
                dh-buildinfo (>= 0.11+nmu1),
                doc-base
-Vcs-Browser: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
-Vcs-Git: https://anonscm.debian.org/cgit/users/kaction-guest/runit.git
+Vcs-Browser: https://salsa.debian.org/runit-team/runit
+Vcs-Git: https://salsa.debian.org/runit-team/runit.git
 
 Package: runit
 Architecture: any
