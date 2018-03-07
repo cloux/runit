@@ -37,7 +37,7 @@ runit (2.1.2-10~UNRELEASED) unstable; urgency=medium
   * Remove version conflicts on sysvinit, since it is no longer present
     in Archives.
 
- -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Wed, 07 Mar 2018 05:56:57 +0300
 
 runit (2.1.2-9.2) unstable; urgency=medium
 
