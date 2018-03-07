@@ -32,6 +32,7 @@ runit (2.1.2-10~UNRELEASED) unstable; urgency=medium
   * Bump compat version to 11, rendering dh-sysuser unneeded.
   * Drop explicit --parallel from debian/rules, since it is default since
     debhelper-10.
+  * Use secure URL when referencing to debian/copyright format.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 
