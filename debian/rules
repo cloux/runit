@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 # There are some problems with sanitize=+all and getgroups(2), as checked in
-# runit-2.1.2/src/chkshgrp.c. 
+# runit-2.1.2/src/chkshgrp.c.
 # -- Dmitry Bogatov <KAction@gnu.org>  Sun, 24 Dec 2017 00:13:54 +0300
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all qa=+canary
 DPKG_EXPORT_BUILDFLAGS = 1
