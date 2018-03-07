@@ -29,6 +29,7 @@ runit (2.1.2-10~UNRELEASED) unstable; urgency=medium
     sequences.
   * Update Vcs-* fields in debian/control. Now on GitLab instance at
     salsa.debian.org
+  * Bump compat version to 11, rendering dh-sysuser unneeded.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 
