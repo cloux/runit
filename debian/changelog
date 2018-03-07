@@ -33,6 +33,7 @@ runit (2.1.2-10~UNRELEASED) unstable; urgency=medium
   * Drop explicit --parallel from debian/rules, since it is default since
     debhelper-10.
   * Use secure URL when referencing to debian/copyright format.
+  * Bump standards version to 4.1.3 (removed priority 'extra')
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 19 Jan 2017 14:21:52 +0300
 
