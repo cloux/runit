@@ -1,4 +1,4 @@
-runit (2.1.2-10~UNRELEASED) unstable; urgency=medium
+runit (2.1.2-10) unstable; urgency=medium
 
   * Replace DEB_BUILD_OPTIONS with DEB_BUILD_MAINT_OPTIONS, since the former
     is meant for user, rebuilding package and overrides the latter.
