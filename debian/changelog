@@ -1,7 +1,7 @@
 runit (2.1.2-10) unstable; urgency=medium
 
   [ Mathieu Mirmont ]
-  * Make compatibilty runlevel(8) print "2", since it is default
+  * Make compatibility runlevel(8) print "2", since it is default
     runlevel for Debian.
   * Remove /command, absent on Debian systems, from PATH in
     'debian/contrib/1'
