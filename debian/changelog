@@ -1,5 +1,10 @@
 runit (2.1.2-10) unstable; urgency=medium
 
+  * Make compatibilty runlevel(8) print "2", since it is default
+    runlevel for Debian.
+  * Remove /command, absent on Debian systems, from PATH in
+    'debian/contrib/1'
+  * Adjust 'debian/contrib/3' to SVDIR=/etc/service, not /service.
   * Replace DEB_BUILD_OPTIONS with DEB_BUILD_MAINT_OPTIONS, since the former
     is meant for user, rebuilding package and overrides the latter.
       + Thanks: Gianfranco Costamagna <locutusofborg@debian.org>
