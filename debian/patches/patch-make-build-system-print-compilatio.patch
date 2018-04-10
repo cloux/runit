@@ -1,0 +1,14 @@
+From: Dmitry Bogatov <KAction@gnu.org>
+Date: Tue, 10 Apr 2018 20:08:14 +0300
+X-Dgit-Generated: 2.1.2-10 9187ce34534181446afc87277ec0d460e5575f9c
+Subject: [PATCH] Make build system print compilation commands
+
+
+---
+
+--- runit-2.1.2.orig/runit-2.1.2/src/warn-auto.sh
++++ runit-2.1.2/runit-2.1.2/src/warn-auto.sh
+@@ -1,2 +1,2 @@
+-#!/bin/sh
++#!/bin/sh -x
+ # WARNING: This file was auto-generated. Do not edit!

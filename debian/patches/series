@@ -7,3 +7,4 @@
 0007-move-communication-files.patch
 0008-emulate-sysv-runlevel-5.patch
 0009-fix-error-in-manpage.patch
+patch-make-build-system-print-compilatio.patch
