@@ -1,5 +1,5 @@
 #!/bin/sh
-set -eux
+set -eu
 
 # Ugly hack to make upgrade from every previous version
 # smooth and `piuparts'-clean.
@@ -17,7 +17,6 @@ if [ "$1" = upgrade ] ; then
 			rmdir --ignore-fail-on-non-empty /etc/sv
 			;;
 		2.1.2-6)
-			find /etc/runit
 			rm -f /etc/runit/runsvdir/current
 			rmdir --ignore-fail-on-non-empty /etc/runit/runsvdir/
 			rmdir --ignore-fail-on-non-empty /etc/runit

@@ -7,6 +7,7 @@ runit (2.1.2-11) unstable; urgency=medium
       + fix typo: unprivilleged -> unprivileged
       + ensure that nested runsv processes are not left unmanaged
     - Thanks: chrysn <chrysn@fsfe.org>
+  * Remove debugging code from runit.preinst (Closes: #881357)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sat, 14 Apr 2018 10:44:53 +0300
 
