@@ -1,11 +1,11 @@
 .\" Copyright (C), 2017  Dmitry Bogatov
 .\" You may distribute this file under the terms of the GNU Free
 .\" Documentation License.
-.TH runscript 1 2017-01-19
+.TH mk-runscript 1 2017-01-19
 .SH NAME
-runscript \- generate service scripts for runit
+mk-runscript \- generate service scripts for runit
 .SH SYNOPSIS
-.B runscript
+.B mk-runscript
 [--add|--remove] unprivilleged
 .I USER
 .SH DESCRIPTION
@@ -19,7 +19,7 @@ If SVDIR is not set and current user is not root, then
 directory is used. If current user is root, SVDIR defaults to
 .I /etc/service.
 
-.SS unprivilleged
+.SS unprivileged
 Makes sense only when invoked by root. Setup runscript, that control
 .B runsvdir
 process, which belong to specified user and manages services, specified
