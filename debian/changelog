@@ -5,6 +5,8 @@ runit (2.1.2-11) unstable; urgency=medium
       + it is not part of runit suite, it is auxiliary script
   * Improve contrib/runscript (Closes: #873836)
       + fix typo: unprivilleged -> unprivileged
+      + ensure that nested runsv processes are not left unmanaged
+    - Thanks: chrysn <chrysn@fsfe.org>
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sat, 14 Apr 2018 10:44:53 +0300
 

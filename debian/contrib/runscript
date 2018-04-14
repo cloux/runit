@@ -86,7 +86,7 @@ case "$1" in
 		SV_NAME="unprivileged.$CFG_USER"
 		case "$action" in
 			add)
-				mkdir -p "$SVDIR/$SV_NAME"
+				mkdir -p "$SVDIR/$SV_NAME/control"
 				cat <<EOF > "$SVDIR/$SV_NAME/run"
 #!/bin/sh
 exec 2>&1
@@ -94,7 +94,12 @@ export USER='$CFG_USER'
 export HOME='$CFG_HOME'
 exec chpst -u '$CFG_USER' runsvdir -P '$CFG_HOME/.service' '$DOTS'
 EOF
+                                cat << EOF > "$SVDIR/$SV_NAME/control/t"
+#!/bin/sh
+exec sv -v hup .
+EOF
 				chmod +x "$SVDIR/$SV_NAME/run"
+				chmod +x "$SVDIR/$SV_NAME/control/t"
 				;;
 			remove)
 				rm -r "${SVDIR:?}/$SV_NAME"
