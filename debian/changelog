@@ -3,6 +3,8 @@ runit (2.1.2-11) unstable; urgency=medium
   * Install contrib/runscript into share/doc, since
       + /usr/bin/runscripts conflicts with bin:minicom (Closes: #895607)
       + it is not part of runit suite, it is auxiliary script
+  * Improve contrib/runscript (Closes: #873836)
+      + fix typo: unprivilleged -> unprivileged
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sat, 14 Apr 2018 10:44:53 +0300
 

@@ -47,7 +47,7 @@ Usage: runscript [--add|--remove] TYPE [ARGS]
 Add or remove runscript of specified type into SVDIR. Currently
 supported types are:
 
- * unprivilleged: create runscript, that creates runit instance,
+ * unprivileged: create runscript, that creates runit instance,
    that supervise services in non-root user's private ~/.service
    directory. The only argument is username.
 EOF
@@ -75,7 +75,7 @@ check_svdir
 
 [ -n "${1:-}" ] || error "runscript type is not specified. Try --help."
 case "$1" in
-	unprivilleged)
+	unprivileged)
 		DOTS=$(seq 40|paste -s|sed 's/././g')
 		CFG_USER=${2:-}
 		[ -n "$CFG_USER" ] || error "missing argument USERNAME"
@@ -83,7 +83,7 @@ case "$1" in
 			error "unknown user \`$CFG_USER'"
 		fi
 		CFG_HOME=$(getent passwd "$CFG_USER"|cut -d: -f6)
-		SV_NAME="unprivilleged.$CFG_USER"
+		SV_NAME="unprivileged.$CFG_USER"
 		case "$action" in
 			add)
 				mkdir -p "$SVDIR/$SV_NAME"
