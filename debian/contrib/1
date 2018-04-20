@@ -3,15 +3,27 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
+run_sysv_scripts () {
+    initdir="${1}"
+    for script in "$initdir/S"* ; do
+        path=$(realpath "$script")
+        name=$(basename "$path")
+        [ -d "/etc/sv/$name" ] || "$script" start
+    done
+    unset path name initdir
+}
 
+run_sysv_scripts '/etc/rcS.d'
+
+# Now /run is mounted.
 touch /run/runit.stopit
 chmod 0 /run/runit.stopit
 
-for initdir in /etc/rcS.d /etc/rc2.d ; do
-	for script in "$initdir/S"* ; do
-		path=$(realpath "$script")
-		name=$(basename "$path")
-		[ -d "/etc/sv/$name" ] || "$script" start
-	done
-done
-unset path name
+# single mode emergency shell, if requested in GRUB menu
+if grep -q -w -i 'single' /proc/cmdline ; then
+    sulogin
+fi
+
+run_sysv_scripts '/etc/rc2.d'
+
+# vim: ft=sh
