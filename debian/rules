@@ -28,25 +28,15 @@ override_dh_installman-arch:
 	mv debian/runit-init/usr/share/man/man8/runit-init.8 \
            debian/runit-init/usr/share/man/man8/init.8
 
-override_dh_runit: runscripts/getty
+override_dh_runit:
+	./debian/getty.in/install
 	dh_runit
 
-debian/runscripts/getty-%/run: debian/runscripts/getty.run.x
-	mkdir -p $(@D)
-	$< $* > $@
-debian/runscripts/getty-%/finish: debian/runscripts/getty.finish.x
-	mkdir -p $(@D)
-	$< $* > $@
-
-GETTY_SERVICE_DIRS = $(foreach n, 1 2 3 4 5 6, debian/runscripts/getty-tty$n)
-runscripts/getty: $(GETTY_SERVICE_DIRS:%=%/run) $(GETTY_SERVICE_DIRS:%=%/finish)
-
-override_dh_clean:
-	rm -fr $(GETTY_SERVICE_DIRS)
-	dh_clean
 override_dh_installchangelogs:
 	dh_installchangelogs
 	dh_installchangelogs -p runit -p runit-init \
 	    runit-$(DEB_VERSION_UPSTREAM)/package/CHANGES
 
-.PHONY: runscripts/getty
+override_dh_clean:
+	rm -rf debian/auto
+	dh_clean

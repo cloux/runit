@@ -1,6 +1,6 @@
-debian/runscripts/getty-tty1 defaults
-debian/runscripts/getty-tty2 defaults
-debian/runscripts/getty-tty3 defaults
-debian/runscripts/getty-tty4 defaults
-debian/runscripts/getty-tty5 defaults
-debian/runscripts/getty-tty6 defaults
+debian/auto/getty-tty1 defaults
+debian/auto/getty-tty2 defaults
+debian/auto/getty-tty3 defaults
+debian/auto/getty-tty4 defaults
+debian/auto/getty-tty5 defaults
+debian/auto/getty-tty6 defaults

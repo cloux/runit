@@ -1,0 +1,5 @@
+#!/bin/sh -euC
+pgrep -x getty -t @TTY@ && exit 163
+pgrep -x agetty -t @TTY@ && exit 163
+! type fgetty >/dev/null 2>&1 || exec chpst -P fgetty @TTY@
+exec getty 38400 @TTY@ linux
