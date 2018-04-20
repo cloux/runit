@@ -1,4 +1,4 @@
-runit (2.1.2-12) UNRELEASED; urgency=medium
+runit (2.1.2-12) unstable; urgency=medium
 
   * Improve 'contrib/1' to support boot in single mode. (Closes: #895914)
     + Thanks: Lorenzo Puliti <lorenzo.ru.g@gmail.com>
@@ -7,7 +7,7 @@ runit (2.1.2-12) UNRELEASED; urgency=medium
     (Closes: #895904)
      + Thanks: Lorenzo Puliti <lorenzo.ru.g@gmail.com>
 
- -- Dmitry Bogatov <KAction@gnu.org>  Fri, 20 Apr 2018 13:24:48 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Fri, 20 Apr 2018 14:46:17 +0300
 
 runit (2.1.2-11) unstable; urgency=medium
 
