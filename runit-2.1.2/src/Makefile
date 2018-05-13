@@ -234,7 +234,6 @@ hassgprm.h: choose compile hassgprm.h1 hassgprm.h2 load trysgprm.c
 
 hasshsgr.h: chkshsgr choose compile hasshsgr.h1 hasshsgr.h2 load \
 tryshsgr.c warn-shsgr
-	./chkshsgr || ( cat warn-shsgr; exit 1 )
 	./choose clr tryshsgr hasshsgr.h1 hasshsgr.h2 > hasshsgr.h
 
 haswaitp.h: choose compile haswaitp.h1 haswaitp.h2 load trywaitp.c
