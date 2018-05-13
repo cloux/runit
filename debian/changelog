@@ -1,4 +1,4 @@
-runit (2.1.2-13) UNRELEASED; urgency=medium
+runit (2.1.2-13) unstable; urgency=medium
 
   * Disable `chkshgrp' test. It requires either root or user with
     supplementary groups; as such it fails with whalebuilder.
@@ -9,7 +9,7 @@ runit (2.1.2-13) UNRELEASED; urgency=medium
     and system shutdown actually handled by /sbin/halt -f, not runit itself
     after execution of /etc/runit/3.
 
- -- Dmitry Bogatov <KAction@gnu.org>  Sun, 13 May 2018 10:32:33 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Sun, 13 May 2018 22:40:08 +0300
 
 runit (2.1.2-12) unstable; urgency=medium
 
