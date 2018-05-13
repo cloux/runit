@@ -1,3 +1,11 @@
+runit (2.1.2-14) UNRELEASED; urgency=medium
+
+  * Disable `chkshgrp' test. It requires either root or user with
+    supplementary groups; as such it fails with whalebuilder.
+    This test is actually about libc, not runit itself.
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Sun, 13 May 2018 10:32:33 +0300
+
 runit (2.1.2-12) unstable; urgency=medium
 
   * Improve 'contrib/1' to support boot in single mode. (Closes: #895914)
