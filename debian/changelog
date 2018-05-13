@@ -1,8 +1,13 @@
-runit (2.1.2-14) UNRELEASED; urgency=medium
+runit (2.1.2-13) UNRELEASED; urgency=medium
 
   * Disable `chkshgrp' test. It requires either root or user with
     supplementary groups; as such it fails with whalebuilder.
     This test is actually about libc, not runit itself.
+  * Halt with RB_POWER_OFF, not RB_HALT in debian/contrib/shutdown.c
+    to avoid system to freeze in power-on state on halt. It should be
+    noted, that currently runit-init runs in sysvinit-compatibility mode,
+    and system shutdown actually handled by /sbin/halt -f, not runit itself
+    after execution of /etc/runit/3.
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sun, 13 May 2018 10:32:33 +0300
 

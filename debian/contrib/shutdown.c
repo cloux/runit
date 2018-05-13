@@ -96,10 +96,7 @@ syscall_shutdown(shutdown_action action)
 		reboot(RB_AUTOBOOT);
 		break;
 	case ACTION_HALT:
-		reboot(RB_HALT_SYSTEM);
-		kill(1, SIGTSTP);
 		reboot(RB_POWER_OFF);
-		reboot(RB_HALT_SYSTEM);
 		break;
 	}
 	return false;
