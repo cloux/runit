@@ -5,5 +5,4 @@ runit-*/man/svlogd.8
 runit-*/man/chpst.8
 runit-*/man/runsvchdir.8
 runit-*/man/utmpset.8
-debian/contrib/update-service.8
 debian/contrib/mk-runscript.1
