@@ -1,0 +1,15 @@
+runit (2.1.2-14) unstable; urgency=medium
+
+  To fix #899242, getty-run binary package no longer provide symbolic links in
+  /etc/service. Instead they are created at post-install by maintainer script.
+  Unfortunately, it means during upgrade from previous version, there is
+  exists moment of time, when /etc/service/getty-tty* links do not exist;
+  as such all processes, started on terminals are killed. If dpkg process
+  is killed this way, system will be left in broken state, when tty login
+  is impossible.
+
+  To mitigate this problem, /etc/service/getty-tty1 is made part of package
+  files. In short, upgrade getty-run 2.1.2-13 -> 2.1.2-14 must be performed
+  under tty1 or display manager. Sorry for invenience.
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Sun, 27 May 2018 19:31:24 +0300

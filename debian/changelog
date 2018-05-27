@@ -1,3 +1,9 @@
+runit (2.1.2-14) UNRELEASED; urgency=medium
+
+  * Rebuild package with dh-runit=2.7.3 (Closes: #899242)
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Sun, 27 May 2018 11:10:14 +0300
+
 runit (2.1.2-13) unstable; urgency=medium
 
   * Disable `chkshgrp' test. It requires either root or user with
