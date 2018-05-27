@@ -1,9 +1,9 @@
-runit (2.1.2-14) UNRELEASED; urgency=medium
+runit (2.1.2-14) unstable; urgency=medium
 
   * Rebuild package with dh-runit=2.7.3 (Closes: #899242)
   * Do not install `update-service' script.
 
- -- Dmitry Bogatov <KAction@gnu.org>  Sun, 27 May 2018 11:10:14 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Sun, 27 May 2018 20:11:33 +0300
 
 runit (2.1.2-13) unstable; urgency=medium
 
