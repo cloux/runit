@@ -234,7 +234,7 @@ void rmoldest(struct logdir *ld) {
         if (unlink(f->d_name) == -1)
           warn2("unable to unlink processor leftover", f->d_name);
       }
-      else {
+      else if (f->d_name[26] != 'u') {
         ++n;
         if (str_diff(f->d_name, oldest) < 0) byte_copy(oldest, 27, f->d_name);
       }
