@@ -1,3 +1,9 @@
+runit (2.1.2-15) UNRELEASED; urgency=medium
+
+  * Fix spin lock on systems with poor clock (Closes: #878476)
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Mon, 28 May 2018 21:46:49 +0300
+
 runit (2.1.2-14) unstable; urgency=medium
 
   * Rebuild package with dh-runit=2.7.3 (Closes: #899242)
