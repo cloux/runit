@@ -9,3 +9,4 @@
 0009-fix-error-in-manpage.patch
 patch-make-build-system-print-compilatio.patch
 patch-disable-chkshgrp-test-that-fails-i.patch
+patch-fix-spin-lock-on-systems-with-poor.patch
