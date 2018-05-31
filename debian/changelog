@@ -1,10 +1,10 @@
-runit (2.1.2-15) UNRELEASED; urgency=medium
+runit (2.1.2-15) unstable; urgency=medium
 
   * Fix spin lock on systems with poor clock (Closes: #878476)
   * Bring back `update-service`, since it is actually used programmatically
     (Closes: #900393)
 
- -- Dmitry Bogatov <KAction@gnu.org>  Mon, 28 May 2018 21:46:49 +0300
+ -- Dmitry Bogatov <KAction@gnu.org>  Thu, 31 May 2018 07:58:42 +0300
 
 runit (2.1.2-14) unstable; urgency=medium
 
