@@ -3,6 +3,8 @@ set -e
 
 servicedir=$SVDIR
 test -n "$servicedir" || servicedir=/etc/service
+# handle relative symlinks, see #899242
+defaultrun=runit/runsvdir/default
 
 err() { >&2 printf '%s\n\n' "$*"; exit 1; }
 fatal() { err "${0##*/}: fatal: $*"; }
@@ -39,7 +41,11 @@ test -n "${sv##.*}" ||
   fatal "The <service-name> must not start with a dot."
 test "$sv" = "${sv#*/}" ||
   fatal "The <service-name> must not contain a slash."
-
+# allow relative symlinks only in 'default' runlevel
+test "$defaultrun" = "$(readlink "$servicedir")" && \
+  relsymdir=../../../sv
+  
+  
 case "$opt" in
   -a|--add)
     test "$(id -u)" = 0 || fatal "${0##*/} -a must be run by root."
@@ -76,7 +82,8 @@ case "$opt" in
       fatal "$servicedir/$sv is not a symbolic link."
     test "$svdir" = "$(readlink "$servicedir"/"$sv")" ||
       test "$svdir"/ = "$(readlink "$servicedir"/"$sv")" ||
-        fatal "$servicedir/$sv does not point to $svdir."
+        test "$relsymdir"/"$sv" = "$(readlink "$servicedir"/"$sv")" ||
+          fatal "$servicedir/$sv does not point to $svdir."
     rm -f "$servicedir"/"$sv"
     printf '%s %s\n' \
       "Service $sv removed," \
