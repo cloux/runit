@@ -2,6 +2,7 @@ runit (2.1.2-16) unstable; urgency=medium
 
   * Create new session for getty-run script to make sure, that
     job control works.
+  * Bump standards version to 4.2.1
 
  -- Dmitry Bogatov <KAction@gnu.org>  Sat, 06 Oct 2018 13:22:58 +0000
 

@@ -2,7 +2,7 @@ Source: runit
 Section: admin
 Maintainer: Dmitry Bogatov <KAction@gnu.org>
 Priority: optional
-Standards-Version: 4.1.4
+Standards-Version: 4.2.1
 Homepage: http://smarden.org/runit/
 Build-Depends: bash-completion,
                debhelper (>= 11~),
