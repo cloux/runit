@@ -1,3 +1,10 @@
+runit (2.1.2-17) UNRELEASED; urgency=medium
+
+  * Add special case into /etc/runit/1 to handle irregular naming
+    of some runscripts.
+
+ -- Dmitry Bogatov <KAction@gnu.org>  Thu, 25 Oct 2018 05:26:45 +0000
+
 runit (2.1.2-16) unstable; urgency=medium
 
   * Create new session for getty-run script to make sure, that

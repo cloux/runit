@@ -8,7 +8,11 @@ run_sysv_scripts () {
     for script in "$initdir/S"* ; do
         path=$(realpath "$script")
         name=$(basename "$path")
-        [ -d "/etc/sv/$name" ] || "$script" start
+        # Special case for wicd. Runscript is called "wicd-daemon",
+        # to match binary package name.
+        [ -d "/etc/sv/$name" ] && continue
+        [ -d "/etc/sv/$name-daemon" ] && continue
+        "$script" start
     done
     unset path name initdir
 }
