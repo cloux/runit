@@ -1,6 +1,6 @@
 Source: runit
 Section: admin
-Maintainer: Dmitry Bogatov <KAction@gnu.org>
+Maintainer: Dmitry Bogatov <KAction@debian.org>
 Priority: optional
 Standards-Version: 4.2.1
 Homepage: http://smarden.org/runit/
