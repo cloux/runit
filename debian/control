@@ -16,6 +16,7 @@ Vcs-Git: https://salsa.debian.org/runit-team/runit.git
 Package: runit
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Recommends: runit-sysv | runit-init | runit-systemd
 Description: system-wide service supervision
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about

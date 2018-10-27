@@ -2,6 +2,8 @@ runit (2.1.2-17) UNRELEASED; urgency=medium
 
   * Add special case into /etc/runit/1 to handle irregular naming
     of some runscripts.
+  * Make bin:runit (providing supervision system) recommend packages,
+    containing integration with initialization systems. (Closes: #866652)
 
  -- Dmitry Bogatov <KAction@gnu.org>  Thu, 25 Oct 2018 05:26:45 +0000
 
