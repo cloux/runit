@@ -10,6 +10,10 @@ update-service \- add/remove a service to/from system-wide service supervision
 .B update-service
 \--list|--check
 [\fIservice-name\fB]
+.P
+.B update-service
+\--auto|--noauto
+.I service-directory
 .SH DESCRIPTION
 .I service-directory
 must be a directory to be used by
@@ -106,6 +110,55 @@ services, one per line.
 The same as --list, but
 .B update-service
 doesn't print anything to standard out or standard error.
+
+.TP
+.B \--auto | \-u
+Remove the down file, if any, from the directory
+.IR service-directory .
+This way, the service represented by the
+.IR service-directory 
+will be started and monitored as soon as a runsv process is started
+for that directory; the requested status of the service will be 'up'.
+This is the default.
+If
+.I service-name
+is given, will be ignored as 
+.BR --auto 
+directly act on the
+.IR service-directory 
+and thus only takes
+.IR service-directory
+as argument.
+.TP
+.B \--noauto | \-n
+Touch a down file into the
+.IR service-directory .
+This way the service represented by
+.IR service-directory
+will not be automatically started when a runsv process is started for that directory.
+The requested status of the service will be 'down'.
+A service set to
+.BR --noauto
+does not start automatically at boot or when a 
+.BR runsvchdir (8)
+takes place,
+but can still be started using the
+.BR sv (8)
+program, e.g.:
+
+# sv up
+.I service-name
+
+If
+.I service-name
+is given, will be ignored as 
+.BR --noauto 
+directly act on the
+.IR service-directory 
+and thus only takes
+.IR service-directory
+as argument.
+
 .SH ENVIRONMENT
 .TP
 .B SVDIR

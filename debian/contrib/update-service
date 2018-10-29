@@ -11,7 +11,8 @@ fatal() { err "${0##*/}: fatal: $*"; }
 warn() { err "${0##*/}: warning: $*"; }
 usage() {
   err "Usage: ${0##*/} --add|--remove <service-directory> [<service-name>]
-       ${0##*/} --list|--check [<service-name>]"
+       ${0##*/} --list|--check [<service-name>]
+       ${0##*/} --auto|--noauto <service-directory>"
 }
 
 opt=$1
@@ -44,7 +45,6 @@ test "$sv" = "${sv#*/}" ||
 # allow relative symlinks only in 'default' runlevel
 test "$defaultrun" = "$(readlink "$servicedir")" && \
   relsymdir=../../../sv
-  
   
 case "$opt" in
   -a|--add)
@@ -89,6 +89,26 @@ case "$opt" in
       "Service $sv removed," \
       "the service daemon received the TERM and CONT signals."
     exit 0
+  ;;
+  -u|--auto)
+    test "$(id -u)" = 0 || fatal "${0##*/} -u must be run by root."
+    sv=$(basename "$svdir")
+    test -f "$svdir"/down || warn "Service $sv is already set to auto"
+    rm "$svdir"/down
+    printf '%s %s\n' \
+      "Service $sv is set to auto," \
+      "now the wanted status of the service is up."
+    exit 0
+  ;;
+  -n|--noauto)
+    test "$(id -u)" = 0 || fatal "${0##*/} -n must be run by root."
+    sv=$(basename "$svdir")
+    test -f "$svdir"/down && warn "Service $sv is already set to no-auto"
+    touch "$svdir"/down
+    printf '%s %s\n' \
+      "Service $sv is set to no-auto," \
+      "now the wanted status of the service is down."
+    exit 0 
   ;;
   *) usage
   ;;
