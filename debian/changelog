@@ -3,6 +3,9 @@ runit (2.1.2-18) UNRELEASED; urgency=medium
   * Improve `update-service' script (Thanks: Lorenzo Puliti)
     + Add --auto/--noauto option to update-service
     + Handle relative symlinks
+  * Ensure, that halt(8) and reboot(8) commands work properly
+    in single mode (Closes: #912937)
+    + Thanks: alecfeldman@disroot.org
 
  -- Dmitry Bogatov <KAction@debian.org>  Thu, 01 Nov 2018 18:18:16 +0000
 

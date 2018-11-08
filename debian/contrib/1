@@ -23,11 +23,17 @@ run_sysv_scripts '/etc/rcS.d'
 touch /run/runit.stopit
 chmod 0 /run/runit.stopit
 
-# single mode emergency shell, if requested in GRUB menu
-if grep -q -w -i 'single' /proc/cmdline ; then
-    sulogin
+# If single mode is requested ('single' option was passed to kernel)
+# we do not start sysv-init deamon.
+#
+# In this case, in stage 2 instead of /etc/service,
+# /etc/runit/runsvdir/single is served.
+#
+# This is required, since runit(8) do not process signals on stage 1 and
+# 3, so invoking sulogin(8) on stage 1 results non-functional
+# halt/reboot.
+if ! grep -q -w -i 'single' /proc/cmdline ; then
+    run_sysv_scripts '/etc/rc2.d'
 fi
-
-run_sysv_scripts '/etc/rc2.d'
 
 # vim: ft=sh
