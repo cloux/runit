@@ -1,6 +1,6 @@
 #!/bin/sh
 
-PATH=/sbin:/usr/sbin:/bin:/usr/bin
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/usr/sbin:/bin:/usr/bin
 SVDIR=/etc/service
 
 # single mode

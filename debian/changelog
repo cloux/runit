@@ -1,3 +1,9 @@
+runit (2.1.2-19) UNRELEASED; urgency=medium
+
+  * Include /usr/local/{sbin,bin} into PATH for runscripts (Closes: #913876)
+
+ -- Dmitry Bogatov <KAction@debian.org>  Fri, 16 Nov 2018 13:37:33 +0000
+
 runit (2.1.2-18) unstable; urgency=medium
 
   * Improve `update-service' script (Thanks: Lorenzo Puliti)
