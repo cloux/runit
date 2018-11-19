@@ -1,4 +1,6 @@
 /usr/share/man/man8/shutdown.8.gz /usr/share/man/man8/reboot.8.gz
 /usr/share/man/man8/shutdown.8.gz /usr/share/man/man8/halt.8.gz
+/usr/share/man/man8/shutdown.8.gz /usr/share/man/man8/poweroff.8.gz
 /sbin/shutdown /sbin/halt
 /sbin/shutdown /sbin/reboot
+/sbin/shutdown /sbin/poweroff
