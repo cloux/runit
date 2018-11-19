@@ -1,10 +1,10 @@
-runit (2.1.2-19) UNRELEASED; urgency=medium
+runit (2.1.2-19) unstable; urgency=medium
 
   * Include /usr/local/{sbin,bin} into PATH for runscripts (Closes: #913876)
   * Build-depend on `debhelper-compat' (obsoletes `debian/compat')
   * Provide `/sbin/poweroff' alias for `/sbin/shutdown' (Closes: #914041)
 
- -- Dmitry Bogatov <KAction@debian.org>  Fri, 16 Nov 2018 13:37:33 +0000
+ -- Dmitry Bogatov <KAction@debian.org>  Mon, 19 Nov 2018 13:48:45 +0000
 
 runit (2.1.2-18) unstable; urgency=medium
 
