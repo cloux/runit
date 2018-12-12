@@ -10,7 +10,7 @@ export LDFLAGS += $(shell getconf LFS_LDFLAGS)
 
 %:
 	dh $@ --sourcedirectory=runit-$(DEB_VERSION_UPSTREAM)/src \
-	      --with bash_completion,runit,buildinfo
+	      --with bash_completion,runit,buildinfo,sysuser
 
 override_dh_auto_configure:
 	echo $(CC) $(CFLAGS) > runit-$(DEB_VERSION_UPSTREAM)/src/conf-cc
