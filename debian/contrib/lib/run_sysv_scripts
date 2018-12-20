@@ -1,0 +1,11 @@
+#!/bin/sh -eu
+initdir="${1}"
+for script in "$initdir/S"* ; do
+	path=$(realpath "$script")
+	name=$(basename "$path")
+	# Special case for wicd. Runscript is called "wicd-daemon",
+	# to match binary package name.
+	[ -d "/etc/sv/$name" ] && continue
+	[ -d "/etc/sv/$name-daemon" ] && continue
+	"$script" start
+done

@@ -5,8 +5,19 @@ SVDIR=/etc/service
 
 # single mode
 if grep -q -w -i 'single' /proc/cmdline ; then
-    SVDIR=/etc/runit/runsvdir/single
+	chpst -P sulogin -p /dev/tty1
 fi
+
+
+# Give sysv scripts 90 seconds (hardcoded in async-timeout source) to
+# start. If something goes wrong, they are detached from controlling
+# terminal.
+#
+# In this case tty1 would likely look ugly -- output from sysv scripts
+# is written over terminal session, but at least we would be able to
+# login.
+
+/lib/runit/async-timeout /lib/runit/run_sysv_scripts '/etc/rc2.d'
 
 exec env - PATH=$PATH \
 runsvdir -P "${SVDIR}" 'log: ...........................................................................................................................................................................................................................................................................................................................................................................................................'

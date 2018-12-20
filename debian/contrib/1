@@ -3,37 +3,17 @@
 
 PATH=/sbin:/usr/sbin:/bin:/usr/bin
 
-run_sysv_scripts () {
-    initdir="${1}"
-    for script in "$initdir/S"* ; do
-        path=$(realpath "$script")
-        name=$(basename "$path")
-        # Special case for wicd. Runscript is called "wicd-daemon",
-        # to match binary package name.
-        [ -d "/etc/sv/$name" ] && continue
-        [ -d "/etc/sv/$name-daemon" ] && continue
-        "$script" start
-    done
-    unset path name initdir
-}
-
-run_sysv_scripts '/etc/rcS.d'
+/lib/runit/run_sysv_scripts '/etc/rcS.d'
 
 # Now /run is mounted.
 touch /run/runit.stopit
 chmod 0 /run/runit.stopit
 
-# If single mode is requested ('single' option was passed to kernel)
-# we do not start sysv-init deamon.
+# That is it.  We do as little, as possible at stage1. Services, that do
+# not have runscripts and invoked via init.d scripts are started at
+# stage2. This way, daemon that hangs or otherwise misbehave do not
+# block whole boot process.
 #
-# In this case, in stage 2 instead of /etc/service,
-# /etc/runit/runsvdir/single is served.
-#
-# This is required, since runit(8) do not process signals on stage 1 and
-# 3, so invoking sulogin(8) on stage 1 results non-functional
-# halt/reboot.
-if ! grep -q -w -i 'single' /proc/cmdline ; then
-    run_sysv_scripts '/etc/rc2.d'
-fi
+# Thanks to Lornenz for suggestion.
 
 # vim: ft=sh

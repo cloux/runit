@@ -1,3 +1,10 @@
+runit (2.1.2-21) UNRELEASED; urgency=medium
+
+  * Resume normal boot after mainainence shell exits (Closes: #912937)
+  * Ensure that getty is started even if some of init.d scripts hang
+
+ -- Dmitry Bogatov <KAction@debian.org>  Thu, 20 Dec 2018 03:18:21 +0000
+
 runit (2.1.2-20) experimental; urgency=medium
 
   * Reduce data duplication between bin:runit and bin:runit-init.
