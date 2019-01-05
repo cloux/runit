@@ -1,11 +1,12 @@
-runit (2.1.2-21) UNRELEASED; urgency=medium
+runit (2.1.2-21) unstable; urgency=medium
 
+  * Upload to unstable
   * Resume normal boot after mainainence shell exits (Closes: #912937)
   * Ensure that getty is started even if some of init.d scripts hang
   * Make sure that /etc/runit/2 does not attempt to start init.d scripts
     and sulogin if `runit' is not current init system.
 
- -- Dmitry Bogatov <KAction@debian.org>  Thu, 20 Dec 2018 03:18:21 +0000
+ -- Dmitry Bogatov <KAction@debian.org>  Sat, 05 Jan 2019 11:28:27 +0000
 
 runit (2.1.2-20) experimental; urgency=medium
 
