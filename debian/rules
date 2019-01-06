@@ -38,18 +38,6 @@ override_dh_installchangelogs:
 	dh_installchangelogs -p runit -p runit-init \
 	    runit-$(DEB_VERSION_UPSTREAM)/package/CHANGES
 
-# Since `runit-init' depends on 'runit' of exactly same version
-# we can save a bit of disk space.
-#
-# FIXME: Is such rigid dependency actually needed?
-IDOC   = debian/runit-init/usr/share/doc/runit-init
-FILES  = changelog.gz buildinfo_$(DEB_BUILD_ARCH).gz
-override_dh_compress:
-	dh_compress
-	for x in $(FILES) ; do               \
-	    ln -sf ../runit/$$x $(IDOC)/$$x ;\
-	done
-
 override_dh_clean:
 	rm -rf debian/auto
 	dh_clean
