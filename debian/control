@@ -77,8 +77,8 @@ Package: runit-init
 Architecture: any
 Depends: runit (= ${binary:Version}), ${misc:Depends},
  ${shlibs:Depends}, getty-run, sysv-rc, initscripts
-Replaces: systemd-sysv, sysvinit-core, upstart, runit (<< 2.1.2-10~)
-Conflicts: systemd-sysv, sysvinit-core, upstart
+Replaces: systemd-sysv, sysvinit-core, runit (<< 2.1.2-10~)
+Conflicts: systemd-sysv, sysvinit-core
 Description: system-wide service supervision (as init system)
  runit is a collection of tools to provide system-wide service supervision
  and to manage services.  Contrary to sysv init, it not only cares about

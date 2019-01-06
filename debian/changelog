@@ -3,6 +3,7 @@ runit (2.1.2-22) UNRELEASED; urgency=medium
   * Do not create symlinks between bin:runit and bin:runit-init
     documentation, since it creates issues with `dpkg-buildpackage -A'.
     (Closes: #918419)
+  * Remove references to `upstart' from `debian/control'.
 
  -- Dmitry Bogatov <KAction@debian.org>  Sun, 06 Jan 2019 10:57:17 +0000
 
