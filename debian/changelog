@@ -1,4 +1,4 @@
-runit (2.1.2-22) UNRELEASED; urgency=medium
+runit (2.1.2-22) unstable; urgency=medium
 
   * Do not create symlinks between bin:runit and bin:runit-init
     documentation, since it creates issues with `dpkg-buildpackage -A'.
@@ -6,7 +6,7 @@ runit (2.1.2-22) UNRELEASED; urgency=medium
   * Remove references to `upstart' from `debian/control'.
   * Relax dependencies between bin:runit and bin:runit-init
 
- -- Dmitry Bogatov <KAction@debian.org>  Sun, 06 Jan 2019 10:57:17 +0000
+ -- Dmitry Bogatov <KAction@debian.org>  Sun, 06 Jan 2019 11:38:26 +0000
 
 runit (2.1.2-21) unstable; urgency=medium
 
