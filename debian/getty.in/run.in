@@ -1,4 +1,11 @@
 #!/bin/sh -euC
+
+# Disable service, if /dev/tty{N} does not exist. See #914788.
+if ! test -c /dev/@TTY@ ; then
+	rm /etc/service/getty-@TTY@
+	exit 0
+fi
+
 pgrep -x getty -t @TTY@ && exit 163
 pgrep -x agetty -t @TTY@ && exit 163
 ! type fgetty >/dev/null 2>&1 || exec chpst -P fgetty @TTY@
