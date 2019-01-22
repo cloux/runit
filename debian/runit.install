@@ -14,3 +14,4 @@ runit-*/src/utmpset    /usr/sbin
 debian/contrib/1       /etc/runit
 debian/contrib/2       /etc/runit
 debian/contrib/3       /etc/runit
+debian/contrib/lib/invoke-run /lib/runit/

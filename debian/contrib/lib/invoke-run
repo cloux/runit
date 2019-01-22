@@ -1,0 +1,46 @@
+#!/bin/sh -eu
+
+usage () {
+	cat << EOF >&2
+Program /lib/runit/invoke-run must only be used as interpreter for
+run scripts with full path, matching /etc/sv/*/run pattern.
+
+Please, refer to documentation in manual page invoke-run(5). If error
+persist, file bug report aganist 'runit' Debian package.
+EOF
+}
+
+if [ $# = 0 ] ; then
+	usage
+	exit 1
+fi
+
+runscript=$(readlink -f "${1}")
+# We should get runscript=/etc/sv/<service>/run, but here we check it,
+# otherwise wierd things might happen.
+
+case "${runscript}" in
+(/etc/sv/*/run) # correct
+	service=${runscript%/run}
+	service=${service#/etc/sv/}
+	;;
+(*)
+	usage
+	exit 1
+	;;
+esac
+readonly runscript service
+
+if [ -r "/etc/default/${service}" ] ; then
+	# export all assigned variables, allow references to
+	# undefined variables.
+	set -a +u
+	. "/etc/default/${service}"
+	set +a -u
+fi
+
+if [ -d "/etc/sv/${service}/conf" ] ; then
+	exec chpst -e "/etc/sv/${service}/conf" -- /bin/sh "${runscript}"
+else
+	exec /bin/sh "${runscript}"
+fi
