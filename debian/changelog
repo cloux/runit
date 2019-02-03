@@ -1,3 +1,10 @@
+runit (2.1.2-23) UNRELEASED; urgency=medium
+
+  * Disable getty-tty services if tty device is missing (Closes: #914788)
+  * Create specialized interpreter for runscripts (Closes: #916697)
+
+ -- Dmitry Bogatov <KAction@debian.org>  Sun, 03 Feb 2019 23:58:55 +0000
+
 runit (2.1.2-22) unstable; urgency=medium
 
   * Do not create symlinks between bin:runit and bin:runit-init
