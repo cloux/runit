@@ -1,0 +1,67 @@
+.TH INVOKE-RUN 8 "Jan 21, 2019" "" "GNU/Linux System Adminstrator's manual"
+.SH NAME
+invoke-run \- runscript interpreter
+.SH SYNOPSIS
+.B /usr/bin/env /lib/run/invoke-run
+.SH DESCRIPTION
+The
+.B runit
+supervision system uses scripts, called
+.I runscripts
+to start services. By convention, runscript for a service
+.I foo
+is located at
+.BI "/etc/sv/" foo "/run"
+.PP
+Debhelper addon
+.I dh_runit
+installs runscript according this convention.
+.PP
+Runscript can be any executable file. Runscript can use
+.B invoke-run
+interpreter only if it is installed according convention,
+.PP
+To use
+.B invoke-run
+interpreter, runscript
+.BI "/etc/sv/" foo "/run"
+for service
+.I foo
+must begin with following line:
+.PP
+.IP "" 4
+.EX
+#!/usr/bin/env /lib/runit/invoke-run
+.EE
+.PP
+Shell
+.I /bin/sh
+will interpret rest of runscript, with some additional environment
+set according following rules:
+.IP "" 4
+If file
+.BI /etc/default/ foo
+exists, it is interpreted with
+.I /bin/sh
+and all variable assignment are accessible to runscript.
+.PP
+.IP "" 4
+If directory
+.BI "/etc/sv/" foo "/conf"
+exists, variables are set according to rules, documented
+in
+.I envdir
+section of
+.BR chpst (8)
+manual.
+.PP
+If both
+.BI /etc/default/ foo
+file and
+.BI "/etc/sv/" foo "/conf"
+directory define some variable, value from directory takes precedence.
+.SH SEE ALSO
+.BR runsvdir (8),
+.BR dh_runit (1),
+.BR chpst (8)
+
