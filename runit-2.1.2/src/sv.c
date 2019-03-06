@@ -1,5 +1,6 @@
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <time.h>
 #include <unistd.h>
 #include "str.h"
 #include "strerr.h"
@@ -271,6 +272,7 @@ int control(char *a) {
 int main(int argc, char **argv) {
   unsigned int i, done;
   char *x;
+  const struct timespec sleeptime = {0, 420000000};
 
   progname =*argv;
   for (i =str_len(*argv); i; --i) if ((*argv)[i -1] == '/') break;
@@ -388,7 +390,7 @@ int main(int argc, char **argv) {
           fatal("unable to change to original directory");
       }
       if (done) break;
-      usleep(420000);
+      nanosleep(&sleeptime, NULL);
       taia_now(&tnow);
     }
   return(rc > 99 ? 99 : rc);
