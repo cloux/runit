@@ -1,4 +1,5 @@
-#!/bin/sh -eu
+#!/bin/sh -u
+# Deliberately NO `set -e'. See #923957.
 initdir="${1}"
 for script in "$initdir/S"* ; do
 	path=$(realpath "$script")
