@@ -1,3 +1,11 @@
+runit (2.1.2-24) UNRELEASED; urgency=medium
+
+  * Remove `set -e' from `run_sysv_scripts' to ensure behaviour
+    similar to `/etc/init.d/rc' -- failure of one script in `/etc/rcS.d'
+    does not prevent other from running. (Closes: #923957)
+
+ -- Dmitry Bogatov <KAction@debian.org>  Fri, 08 Mar 2019 15:27:31 +0000
+
 runit (2.1.2-23) experimental; urgency=medium
 
   * Disable getty-tty services if tty device is missing (Closes: #914788)
