@@ -17,7 +17,7 @@ const char *progname;
 void usage(void) { strerr_die4x(0, "usage: ", progname, USAGE, "\n"); }
 
 void runit_halt () {
-  if (open_trunc(STOPIT) == -1)
+  if (close(open_trunc(STOPIT)) == -1)
     strerr_die4sys(111, FATAL, "unable to create ", STOPIT, ": ");
   if (chmod(STOPIT, 0100) == -1)
     strerr_die4sys(111, FATAL, "unable to chmod ", STOPIT, ": ");
@@ -29,11 +29,11 @@ void runit_halt () {
 }
 
 void runit_reboot () {
-  if (open_trunc(STOPIT) == -1)
+  if (close(open_trunc(STOPIT)) == -1)
     strerr_die4sys(111, FATAL, "unable to create ", STOPIT, ": ");
   if (chmod(STOPIT, 0100) == -1)
     strerr_die4sys(111, FATAL, "unable to chmod ", STOPIT, ": ");
-  if (open_trunc(REBOOT) == -1)
+  if (close(open_trunc(REBOOT)) == -1)
     strerr_die4sys(111, FATAL, "unable to create ", REBOOT, ": ");
   if (chmod(REBOOT, 0100) == -1)
     strerr_die4sys(111, FATAL, "unable to chmod ", REBOOT, ": ");
