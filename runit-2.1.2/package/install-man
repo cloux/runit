@@ -9,12 +9,12 @@ for i in man/*.[1-8]; do
   gzip -c $i >${i}.gz
 done
 
-echo 'Installing into /usr/local/man...'
+echo 'Installing into /usr/share/man...'
 cd man
 for i in 8; do
-  mkdir -p /usr/local/man/man$i
+  mkdir -p /usr/share/man/man$i
   for j in *.$i; do
-    mv -uv $j.gz /usr/local/man/man$i/$j.gz
+    cp -pfv $j.gz /usr/share/man/man$i/$j.gz
     rm -f $j.gz
   done
 done
