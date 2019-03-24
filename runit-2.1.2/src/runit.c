@@ -30,6 +30,7 @@ const char * const stage[3] ={
 int selfpipe[2];
 int sigc =0;
 int sigi =0;
+int sigp =0;
 
 void sig_cont_handler (void) {
   sigc++;
@@ -37,6 +38,10 @@ void sig_cont_handler (void) {
 }
 void sig_int_handler (void) {
   sigi++;
+  write(selfpipe[1], "", 1);
+}
+void sig_pwr_handler (void) {
+  sigp++;
   write(selfpipe[1], "", 1);
 }
 void sig_child_handler (void) { write(selfpipe[1], "", 1); }
@@ -71,6 +76,8 @@ int main (int argc, const char * const *argv, char * const *envp) {
   sig_block(sig_hangup);
   sig_block(sig_int);
   sig_catch(sig_int, sig_int_handler);
+  sig_block(sig_pwr);
+  sig_catch(sig_pwr, sig_pwr_handler);
   sig_block(sig_pipe);
   sig_block(sig_term);
 
@@ -150,6 +157,7 @@ int main (int argc, const char * const *argv, char * const *envp) {
       sig_unblock(sig_child);
       sig_unblock(sig_cont);
       sig_unblock(sig_int);
+      sig_unblock(sig_pwr);
 #ifdef IOPAUSE_POLL
       poll(&x, 1, 14000);
 #else
@@ -161,6 +169,7 @@ int main (int argc, const char * const *argv, char * const *envp) {
       sig_block(sig_cont);
       sig_block(sig_child);
       sig_block(sig_int);
+      sig_block(sig_pwr);
       
       while (read(selfpipe[0], &ch, 1) == 1) {}
       while ((child =wait_nohang(&wstat)) > 0)
@@ -211,7 +220,7 @@ int main (int argc, const char * const *argv, char * const *envp) {
       }
 
       /* sig? */
-      if (!sigc  && !sigi) {
+      if (!sigc && !sigi && !sigp) {
 #ifdef DEBUG
         strerr_warn2(WARNING, "poll: ", &strerr_sys);
 #endif
@@ -244,7 +253,7 @@ int main (int argc, const char * const *argv, char * const *envp) {
         sigi =0;
         sigc++;
       }
-      if (sigc && (stat(STOPIT, &s) != -1) && (s.st_mode & S_IXUSR)) {
+      if ((sigp) || (sigc && (stat(STOPIT, &s) != -1) && (s.st_mode & S_IXUSR))) {
         int i;
         /* unlink(STOPIT); */
         chmod(STOPIT, 0);
@@ -286,7 +295,7 @@ int main (int argc, const char * const *argv, char * const *envp) {
         /* enter stage 3 */
         break;
       }
-      sigc =sigi =0;
+      sigc =sigi =sigp =0;
 #ifdef DEBUG
       strerr_warn2(WARNING, "no request.", 0);
 #endif
@@ -308,7 +317,7 @@ int main (int argc, const char * const *argv, char * const *envp) {
   switch (pid) {
   case  0:
   case -1:
-  if ((stat(REBOOT, &s) != -1) && (s.st_mode & S_IXUSR)) {
+  if ((!sigp) && ((stat(REBOOT, &s) != -1) && (s.st_mode & S_IXUSR))) {
     strerr_warn2(INFO, "system reboot.", 0);
     sync_if_needed();
     reboot_system(RB_AUTOBOOT);
