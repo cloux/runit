@@ -14,7 +14,7 @@ cd man
 for i in 8; do
   mkdir -p /usr/share/man/man$i
   for j in *.$i; do
-    cp -pfv $j.gz /usr/share/man/man$i/$j.gz
+    cp -pf $j.gz /usr/share/man/man$i/$j.gz
     rm -f $j.gz
   done
 done
