@@ -214,7 +214,7 @@ int main(int argc, char **argv) {
     taia_now(&now);
     if (now.sec.x < (stampcheck.sec.x -3)) {
       /* time warp */
-      warn3x("time warp: resetting time stamp.", 0, 0);
+      /*warn3x("time warp: resetting time stamp.", 0, 0);*/
       taia_now(&stampcheck);
       taia_now(&now);
       if (rplog) taia_now(&stamplog);
