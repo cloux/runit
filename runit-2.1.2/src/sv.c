@@ -38,7 +38,7 @@ char **service;
 char **servicex;
 unsigned int services;
 unsigned int rc =0;
-unsigned int lsb;
+int lsb;
 unsigned int verbose =0;
 unsigned long wait =7;
 unsigned int kll =0;
@@ -269,6 +269,21 @@ int control(char *a) {
   return(1);
 }
 
+void cd_servicedir() {
+  char* msgFail = "unable to change to service directory";
+  if (**service == 0) {
+    fail(msgFail);
+  } else if (**service == '/' || **service == '.') {
+    if (chdir(*service) == -1) {
+      fail(msgFail);
+      *service =0;
+    }
+  } else if (chdir(varservice) == -1 || chdir(*service) == -1) {
+    fail(msgFail);
+    *service =0;
+  }
+}
+
 int main(int argc, char **argv) {
   unsigned int i, done;
   char *x;
@@ -344,18 +359,7 @@ int main(int argc, char **argv) {
 
   servicex =service;
   for (i =0; i < services; ++i) {
-    if ((**service != '/') && (**service != '.') && **service &&
-        ((*service)[str_len(*service) -1] != '/')) {
-      if ((chdir(varservice) == -1) || (chdir(*service) == -1)) {
-        fail("unable to change to service directory");
-        *service =0;
-      }
-    }
-    else
-      if (chdir(*service) == -1) {
-        fail("unable to change to service directory");
-        *service =0;
-      }
+    cd_servicedir();
     if (*service) if (act && (act(acts) == -1)) *service =0;
     if (fchdir(curdir) == -1) fatal("unable to change to original directory");
     service++;
@@ -367,17 +371,7 @@ int main(int argc, char **argv) {
       service =servicex; done =1;
       for (i =0; i < services; ++i, ++service) {
         if (!*service) continue;
-        if ((**service != '/') && (**service != '.')) {
-          if ((chdir(varservice) == -1) || (chdir(*service) == -1)) {
-            fail("unable to change to service directory");
-            *service =0;
-          }
-        }
-        else
-          if (chdir(*service) == -1) {
-            fail("unable to change to service directory");
-            *service =0;
-          }
+        cd_servicedir();
         if (*service) { if (cbk(acts) != 0) *service =0; else done =0; }
         if (*service && taia_approx(&tdiff) > wait) {
           kll ? outs(KILL) : outs(TIMEOUT);
