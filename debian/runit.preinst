@@ -24,4 +24,25 @@ if [ "$1" = upgrade ] ; then
 	esac
 fi
 
+servlink=$(readlink -f /etc/service)
+
+if [ ! -e /etc/runit/runsvdir/current ]; then
+	#rm any broken/old symlink, just to be sure
+	rm -f /etc/runit/runsvdir/current
+	echo 'runit: setting up for runsvchdir'
+	#now current symlink does not exists, we can safely create it
+	ln -s /etc/runit/runsvdir/default /etc/runit/runsvdir/current
+	echo 'runit: current symlink succesfully created'
+fi
+
+if [ "$servlink" = '/etc/runit/runsvdir/default' ]; then
+	# we are running in the default rundir, proceed with the switch
+	# note that ln is not safe to use here as it does an unlink before
+	# creating the new link; using mv instead
+	printf "runit: switching /etc/service to current... "
+	ln -s /etc/runit/runsvdir/current /etc/service-new
+	mv -T /etc/service-new /etc/service
+	printf "done\n"
+fi
+
 #DEBHELPER#

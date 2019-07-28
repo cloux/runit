@@ -15,3 +15,11 @@ debian/contrib/1       /etc/runit
 debian/contrib/2       /etc/runit
 debian/contrib/3       /etc/runit
 debian/contrib/lib/invoke-run /lib/runit/
+
+runit-2.1.2/src/runit-init          /lib/runit
+runit-2.1.2/src/runit               /sbin
+debian/contrib/shutdown             /lib/runit
+debian/contrib/runlevel             /lib/runit
+debian/sulogin/run                  /etc/runit/runsvdir/single/sulogin
+debian/contrib/lib/async-timeout    /lib/runit
+debian/contrib/lib/run_sysv_scripts /lib/runit

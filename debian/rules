@@ -26,8 +26,10 @@ override_dh_installsystemd:
 
 override_dh_installman-arch:
 	dh_installman
-	mv debian/runit-init/usr/share/man/man8/runit-init.8 \
-           debian/runit-init/usr/share/man/man8/init.8
+	mv debian/runit/usr/share/man/man8/shutdown.8 \
+	   debian/runit/usr/share/man/man8/runit-shutdown.8
+	mv debian/runit/usr/share/man/man8/runlevel.8 \
+	   debian/runit/usr/share/man/man8/runit-runlevel.8
 
 override_dh_runit:
 	./debian/getty.in/install

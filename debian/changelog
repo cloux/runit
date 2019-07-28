@@ -1,3 +1,39 @@
+runit (2.1.2-29) experimental; urgency=medium
+
+  * [2c5a162f] Apply patches to fix compiler warnings.
+    Thanks to Jan <cloux@rote.ch>
+    (Closes: #924054, #924056, #924057, #924058, #924059)
+  * [a76ab7a7] Fix typo in bugnumber in previous changelog entry
+  * [f2293d92] Move binaries from runit-init package (Closes: #926777)
+  * [a1eed2c8] Make /etc/service point to `current' symlink.
+    Thanks to Lorenzo Puliti <lorenzo.ru.g@gmail.com> (Closes: #916973)
+  * [cc656ec6] Bump standards version to 4.3.0
+
+ -- Dmitry Bogatov <KAction@debian.org>  Sat, 13 Apr 2019 03:34:59 +0000
+
+runit (2.1.2-28) experimental; urgency=medium
+
+  * Change the supervise directory path of update-service to be consistent
+    with the path used in dh-runit. (Closes: #924688)
+  * Stop init.d script in invoke-run(5) (Closes: #924769)
+
+ -- Dmitry Bogatov <KAction@debian.org>  Mon, 08 Apr 2019 16:40:06 +0000
+
+runit (2.1.2-27) experimental; urgency=medium
+
+  * Support `--wtmp-only' flag in /sbin/halt implementation (Closes: #919699)
+  * Initiate system shutdown when runit-init receives SIGPWR (Closes: #923924)
+    + Thanks: Andras Korn <korn-debbugs@elan.rulez.org>
+
+ -- Dmitry Bogatov <KAction@debian.org>  Wed, 13 Mar 2019 18:30:49 +0000
+
+runit (2.1.2-25) unstable; urgency=medium
+
+  * Use full path when executing emergency shell. (Closes: #924038)
+    + Thanks: Lorenzo Puliti <lorenzo.ru.g@gmail.com>
+
+ -- Dmitry Bogatov <KAction@debian.org>  Sat, 09 Mar 2019 17:41:51 +0000
+
 runit (2.1.2-24) unstable; urgency=medium
 
   * Remove `set -e' from `run_sysv_scripts' to ensure behaviour

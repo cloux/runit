@@ -39,6 +39,11 @@ if [ -r "/etc/default/${service}" ] ; then
 	set +a -u
 fi
 
+readonly initscript="/etc/init.d/${service}"
+if [ -x "${initscript}" ] ; then
+	"${initscript}" stop
+fi
+
 if [ -d "/etc/sv/${service}/conf" ] ; then
 	exec chpst -e "/etc/sv/${service}/conf" -- /bin/sh "${runscript}"
 else

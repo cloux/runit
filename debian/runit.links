@@ -1,1 +1,1 @@
-/etc/runit/runsvdir/default /etc/service
+/etc/runit/runsvdir/current /etc/service

@@ -9,7 +9,7 @@ SVDIR=/etc/service
 if [ -f /run/runit.stopit ] ; then
 	# single mode
 	if grep -q -w -i 'single' /proc/cmdline ; then
-		chpst -P sulogin -p /dev/tty1
+		chpst -P /sbin/sulogin -p /dev/tty1
 	fi
 
 

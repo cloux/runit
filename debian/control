@@ -2,7 +2,7 @@ Source: runit
 Section: admin
 Maintainer: Dmitry Bogatov <KAction@debian.org>
 Priority: optional
-Standards-Version: 4.2.1
+Standards-Version: 4.3.0
 Homepage: http://smarden.org/runit/
 Build-Depends: bash-completion,
                debhelper-compat (= 11),
@@ -17,6 +17,8 @@ Vcs-Git: https://salsa.debian.org/runit-team/runit.git
 Package: runit
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
+Replaces: runit-init (<< 2.1.2-29~)
+Breaks: runit-init (<< 2.1.2-29~)
 Recommends: runit-sysv | runit-init | runit-systemd
 Description: system-wide service supervision
  runit is a collection of tools to provide system-wide service supervision
@@ -74,8 +76,8 @@ Description: runscripts to supervise getty processes
  local login.
 
 Package: runit-init
-Architecture: any
-Depends: runit (>= 2.1.2-20~), ${misc:Depends},
+Architecture: all
+Depends: runit (>= 2.1.2-29~), ${misc:Depends},
  ${shlibs:Depends}, getty-run, sysv-rc, initscripts
 Replaces: systemd-sysv, sysvinit-core, runit (<< 2.1.2-10~)
 Conflicts: systemd-sysv, sysvinit-core

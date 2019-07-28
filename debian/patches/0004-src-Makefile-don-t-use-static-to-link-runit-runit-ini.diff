@@ -1,8 +1,7 @@
-From 77d0f60701a401ea0de0925d9422c78fb560b4f6 Mon Sep 17 00:00:00 2001
 From: Gerrit Pape <pape@smarden.org>
 Date: Thu, 31 Jul 2014 12:54:32 +0000
-Subject: [PATCH] src/Makefile: don't use -static to link runit, runit-init on
- Debian
+Subject: [PATCH] src/Makefile: don't use -static to link runit,
+ runit-init on Debian
 
 ---
  runit-2.1.2/src/Makefile | 4 ++--
@@ -25,6 +24,3 @@ index d9624de..507a419 100644
  
  runsv: load runsv.o unix.a byte.a time.a
  	./load runsv unix.a byte.a time.a
--- 
-2.0.1
-

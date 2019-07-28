@@ -1,8 +1,17 @@
-Description: Make buildsystem respect dpkg-buildflags
-Author: Dmitry Bogatov <KAction@gnu.org>
+From: Dmitry Bogatov <KAction@gnu.org>
+Date: Tue, 12 Mar 2019 19:07:02 +0000
+Subject: Make buildsystem respect dpkg-buildflags
+
+Last-Update: 2016-06-01
+
 Last-Update: 2016-06-01
 ---
-This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+ runit-2.1.2/src/print-cc.sh | 2 +-
+ runit-2.1.2/src/print-ld.sh | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/runit-2.1.2/src/print-cc.sh b/runit-2.1.2/src/print-cc.sh
+index 31f4ed3..25e43b4 100644
 --- a/runit-2.1.2/src/print-cc.sh
 +++ b/runit-2.1.2/src/print-cc.sh
 @@ -2,4 +2,4 @@ cc="`head -n1 conf-cc`"
@@ -11,6 +20,8 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  cat warn-auto.sh
 -echo exec "$cc" '-c ${1+"$@"}'
 +echo exec "$cc" "$CPPFLAGS" "$CFLAGS" '-c ${1+"$@"}'
+diff --git a/runit-2.1.2/src/print-ld.sh b/runit-2.1.2/src/print-ld.sh
+index 59489a8..6d5030d 100644
 --- a/runit-2.1.2/src/print-ld.sh
 +++ b/runit-2.1.2/src/print-ld.sh
 @@ -3,4 +3,4 @@ systype="`cat systype`"

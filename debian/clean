@@ -1,1 +1,3 @@
 runit
+debian/contrib/shutdown
+debian/contrib/lib/async-timeout

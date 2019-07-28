@@ -34,9 +34,14 @@ must begin with following line:
 #!/usr/bin/env /lib/runit/invoke-run
 .EE
 .PP
-Shell
+If init.d script
+.BI /etc/init.d/ foo
+exists, it is invoked with
+.B stop
+argument to gracefully handle package upgrade to version,
+introducing runscript. After that,
 .I /bin/sh
-will interpret rest of runscript, with some additional environment
+shell interpret rest of runscript, with some additional environment
 set according following rules:
 .IP "" 4
 If file

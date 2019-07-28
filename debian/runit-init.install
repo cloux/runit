@@ -1,8 +1,0 @@
-#!/usr/bin/dh-exec
-runit-2.1.2/src/runit-init => /sbin/init
-runit-2.1.2/src/runit      /sbin
-debian/contrib/shutdown /sbin
-debian/contrib/runlevel /sbin
-debian/sulogin/run => /etc/runit/runsvdir/single/sulogin/run
-debian/contrib/lib/async-timeout    /lib/runit
-debian/contrib/lib/run_sysv_scripts /lib/runit

@@ -1,11 +1,19 @@
-Description: Fix factual error in manpage.
- Log ./finish script is not actually invoked. It is not clear, whether this
- limitation is worth lifting.
-Author: Dmitry Bogatov <KAction@gnu.org>
+From: Dmitry Bogatov <KAction@gnu.org>
+Date: Tue, 12 Mar 2019 19:07:03 +0000
+Subject: Fix factual error in manpage.
+
 Forwarded: no
 Last-Update: 2016-08-31
+
+Log ./finish script is not actually invoked. It is not clear, whether this
+limitation is worth lifting.
+Last-Update: 2016-08-31
 ---
-This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+ runit-2.1.2/man/runsv.8 | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+diff --git a/runit-2.1.2/man/runsv.8 b/runit-2.1.2/man/runsv.8
+index 75bc73a..5202bfb 100644
 --- a/runit-2.1.2/man/runsv.8
 +++ b/runit-2.1.2/man/runsv.8
 @@ -54,10 +54,8 @@ and

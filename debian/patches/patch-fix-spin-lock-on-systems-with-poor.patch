@@ -1,13 +1,15 @@
 From: Dmitry Bogatov <KAction@gnu.org>
 Date: Mon, 28 May 2018 21:46:39 +0300
-X-Dgit-Generated: 2.1.2-15 7791b76917a00ca44e3a5c297675214a40f7f215
 Subject: [PATCH] Fix spin lock on systems with poor clock
 
-
 ---
+ runit-2.1.2/src/svlogd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
---- runit-2.1.2.orig/runit-2.1.2/src/svlogd.c
-+++ runit-2.1.2/runit-2.1.2/src/svlogd.c
+diff --git a/runit-2.1.2/src/svlogd.c b/runit-2.1.2/src/svlogd.c
+index 90a3321..fab8441 100644
+--- a/runit-2.1.2/src/svlogd.c
++++ b/runit-2.1.2/src/svlogd.c
 @@ -234,7 +234,7 @@ void rmoldest(struct logdir *ld) {
          if (unlink(f->d_name) == -1)
            warn2("unable to unlink processor leftover", f->d_name);

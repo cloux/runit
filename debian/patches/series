@@ -10,3 +10,9 @@
 patch-make-build-system-print-compilatio.patch
 patch-disable-chkshgrp-test-that-fails-i.patch
 patch-fix-spin-lock-on-systems-with-poor.patch
+0013-Shutdown-when-runit-init-receices-SIGPWR.patch
+0014-fix-implicit-declarations-incompatible-types-argv-ty.patch
+0015-fix-34-cases-of-Wmisleading-indentation-warnings.patch
+0016-fix-warning-for-undefined-operation-on-sequence-poin.patch
+0017-fix-replace-obsolete-usleep-with-nanosleep.patch
+0018-fix-resource-leaks-and-other-issues-as-reported-by-i.patch

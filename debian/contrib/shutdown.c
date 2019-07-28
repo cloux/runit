@@ -62,6 +62,15 @@ struct sysv_request {
 #define SYSV_CMD_RUNLVL         1
 #define SYSV_FIFO               "/run/initctl"
 
+/* Since we are forced to support more and more of command line options
+ * expected by initscripts, let us make it more structured.
+ */
+struct config {
+	enum shutdown_action action;
+	bool force;
+	bool wtmp_only;
+};
+
 /* Luckily, systemd supports sysvinit pipe interface, so there
  * is no need to write separate function interfacing systemd.
  */
@@ -111,43 +120,56 @@ runit_shutdown(shutdown_action action)
 	return false;
 }
 
-/* Primitive form of command line parsing. */
-static bool
-use_force_p(char **argv)
+static void
+parse_command_line(struct config *cfg, int argc, char **argv)
 {
-	while (*argv) {
-		if (strcmp(*argv, "-f") == 0)
-			return true;
-		argv++;
+	int i;
+
+	cfg->action    = ACTION_HALT;
+	cfg->force     = false;
+	cfg->wtmp_only = false;
+
+	if (strstr(argv[0], "reboot")) {
+		cfg->action = ACTION_REBOOT;
 	}
-	return false;
+
+	for (i = 1; i != argc; ++i) {
+		if (strcmp(argv[i], "-f"))
+			cfg->force = true;
+		if (strcmp(argv[i], "--force"))
+			cfg->force = true;
+		if (strcmp(argv[i], "-w"))
+			cfg->wtmp_only = true;
+		if (strcmp(argv[i], "--wtmp-only"))
+			cfg->wtmp_only = true;
+	}
 }
 
 int
 main(int argc, char **argv)
 {
-	shutdown_action action = ACTION_HALT;
-	bool use_force = false;
+	struct config cfg;
 	bool ok;
+
+	parse_command_line(&cfg, argc, argv);
 
 	if (geteuid() != 0) {
 		write2("shutdown: must be superuser.\n");
 		return 2;
 	}
-
-	if (strstr(argv[0], "reboot")) {
-		action = ACTION_REBOOT;
+	if (cfg.wtmp_only) {
+		// No-Op: see #919699
+		return 0;
 	}
-	use_force = use_force_p(argv + 1);
 
-	if (use_force) {
-		ok = syscall_shutdown(action);
+	if (cfg.force) {
+		ok = syscall_shutdown(cfg.action);
 	} else {
-		ok = sysv_shutdown(action)
-			|| runit_shutdown(action);
+		ok = sysv_shutdown(cfg.action)
+			|| runit_shutdown(cfg.action);
 		sleep(15);
 		/* System should be already down, but still. */
-		syscall_shutdown(action);
+		syscall_shutdown(cfg.action);
 	}
 	return ok ? 0 : 1;
 }

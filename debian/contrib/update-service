@@ -63,11 +63,11 @@ case "$opt" in
     if test "${svdir#/etc/}" != "$svdir"; then
       if test ! -h "$svdir"/supervise; then
         rm -rf "$svdir"/supervise
-        ln -s /var/lib/supervise/"$sv" "$svdir"/supervise
+        ln -s /var/lib/runit/supervise/"$sv" "$svdir"/supervise
       fi
       if test -d "$svdir"/log && test ! -h "$svdir"/log/supervise; then
         rm -rf "$svdir"/log/supervise
-        ln -s /var/lib/supervise/"$sv".log "$svdir"/log/supervise
+        ln -s /var/lib/runit/log/supervise/"$sv" "$svdir"/log/supervise
       fi
     fi
     ln -s "$svdir" "$servicedir"/"$sv"

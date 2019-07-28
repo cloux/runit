@@ -1,15 +1,28 @@
-Description: Move communication files under /run
- Runit by default uses files /etc/runit/stop and /etc/runit/reboot.
- This configuration will not work when /etc is mounted read-only,
- as such this patch renames this files into /run/runit.stop and
- /run/runit.reboot
-Author: Dmitry Bogatov <KAction@gnu.org>
+From: Dmitry Bogatov <KAction@gnu.org>
+Date: Tue, 12 Mar 2019 19:07:02 +0000
+Subject: Move communication files under /run
+
+Last-Update: 2016-06-02
+
+Runit by default uses files /etc/runit/stop and /etc/runit/reboot.
+This configuration will not work when /etc is mounted read-only,
+as such this patch renames this files into /run/runit.stop and
+/run/runit.reboot
 Last-Update: 2016-06-02
 ---
-This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+ runit-2.1.2/etc/debian/1          | 4 ++--
+ runit-2.1.2/etc/debian/3          | 2 +-
+ runit-2.1.2/etc/debian/ctrlaltdel | 4 ++--
+ runit-2.1.2/man/runit-init.8      | 8 ++++----
+ runit-2.1.2/man/runit.8           | 6 +++---
+ runit-2.1.2/src/runit.h           | 4 ++--
+ 6 files changed, 14 insertions(+), 14 deletions(-)
+
+diff --git a/runit-2.1.2/etc/debian/1 b/runit-2.1.2/etc/debian/1
+index 4cd10cb..fd88924 100755
 --- a/runit-2.1.2/etc/debian/1
 +++ b/runit-2.1.2/etc/debian/1
-@@ -6,5 +6,5 @@ PATH=/command:/sbin:/bin:/usr/sbin:/usr/
+@@ -6,5 +6,5 @@ PATH=/command:/sbin:/bin:/usr/sbin:/usr/bin
  /etc/init.d/rcS
  /etc/init.d/rmnologin
  
@@ -17,6 +30,8 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 -chmod 0 /etc/runit/stopit
 +touch /run/runit.stopit
 +chmod 0 /run/runit.stopit
+diff --git a/runit-2.1.2/etc/debian/3 b/runit-2.1.2/etc/debian/3
+index 10354d7..525b96b 100755
 --- a/runit-2.1.2/etc/debian/3
 +++ b/runit-2.1.2/etc/debian/3
 @@ -4,7 +4,7 @@ exec 2>&1
@@ -28,6 +43,8 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  
  echo 'Waiting for services to stop...'
  sv -w196 force-stop /service/*
+diff --git a/runit-2.1.2/etc/debian/ctrlaltdel b/runit-2.1.2/etc/debian/ctrlaltdel
+index 6684457..22cd062 100755
 --- a/runit-2.1.2/etc/debian/ctrlaltdel
 +++ b/runit-2.1.2/etc/debian/ctrlaltdel
 @@ -4,6 +4,6 @@ PATH=/bin:/usr/bin
@@ -39,6 +56,8 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 +touch /etc/runit.stopit
 +chmod 100 /etc/runit.stopit && echo "$MSG" | wall
  /bin/sleep 14
+diff --git a/runit-2.1.2/man/runit-init.8 b/runit-2.1.2/man/runit-init.8
+index 4ea33c2..cd2aa51 100644
 --- a/runit-2.1.2/man/runit-init.8
 +++ b/runit-2.1.2/man/runit-init.8
 @@ -26,9 +26,9 @@ To signal
@@ -65,6 +84,8 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  (chmod 100). Then a CONT signal is sent to
  .BR runit (8).
  .SH EXIT CODES
+diff --git a/runit-2.1.2/man/runit.8 b/runit-2.1.2/man/runit.8
+index faf789b..6c07cf8 100644
 --- a/runit-2.1.2/man/runit.8
 +++ b/runit-2.1.2/man/runit.8
 @@ -45,11 +45,11 @@ done here.
@@ -90,6 +111,8 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
  exists and has the execute by owner permission set,
  .B runit
  is told to shutdown the system.
+diff --git a/runit-2.1.2/src/runit.h b/runit-2.1.2/src/runit.h
+index e67060b..0de4d47 100644
 --- a/runit-2.1.2/src/runit.h
 +++ b/runit-2.1.2/src/runit.h
 @@ -1,5 +1,5 @@
