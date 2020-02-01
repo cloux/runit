@@ -1,5 +1,7 @@
 /* Public domain. */
 
+#include <stdio.h>
+#include <stdlib.h>
 #include <signal.h>
 
 void nope()
@@ -38,7 +40,7 @@ int main()
       putchar(c);
     }
 
-  printf("-%08x-%08x\n",y[0],y[3]);
+  printf("-%08lx-%08lx\n",y[0],y[3]);
 
   return 0;
 }
