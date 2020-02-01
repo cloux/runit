@@ -104,7 +104,7 @@ int main (int argc, char * const *argv, char * const *envp) {
   }
   argv +=optind;
 
-  if (! argv || ! *argv) usage();
+  if (! *argv) usage();
   if (utmp_logout(*argv) == -1)
     strerr_die4x(111, WARNING, "unable to logout line ", *argv,
                  " in utmp: no such entry");

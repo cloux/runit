@@ -332,7 +332,7 @@ int main(int argc, char **argv) {
     case '?': usage();
     }
   argv +=optind;
-  if (! argv || ! *argv) usage();
+  if (! *argv) usage();
 
   if (pgrp) setsid();
   if (env_dir) edir(env_dir);
