@@ -4,6 +4,6 @@
 struct utmp ut;
 
 int main(void) {
-  char *s =ut.ut_name;
+  char *s =ut.ut_user;
   return(0);
 }
