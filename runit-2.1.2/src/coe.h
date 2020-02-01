@@ -3,6 +3,6 @@
 #ifndef COE_H
 #define COE_H
 
-extern int coe(int);
+extern void coe(int);
 
 #endif
