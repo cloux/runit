@@ -33,8 +33,8 @@ int utmp_logout(const char *line) {
     strerr_die4sys(111, FATAL, "unable to lock: ", UW_TMP_UFILE, ": ");
 
   while (read(fd, &ut, sizeof(uw_tmp)) == sizeof(uw_tmp)) {
-    if (!ut.ut_name[0] || (str_diff(ut.ut_line, line) != 0)) continue;
-    memset(ut.ut_name, 0, sizeof ut.ut_name);
+    if (!ut.ut_user[0] || (str_diff(ut.ut_line, line) != 0)) continue;
+    memset(ut.ut_user, 0, sizeof ut.ut_user);
     memset(ut.ut_host, 0, sizeof ut.ut_host);
     if (time(&t) == -1) break;
     ut.ut_time = t;
